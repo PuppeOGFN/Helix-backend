@@ -25,11 +25,6 @@ app.get(
       if (
         ![
           "Elimination",
-          "Win",
-          "Top 3",
-          "Top 7",
-          "Top 12",
-          "Bus Fare",
         ].includes(reason)
       ) {
         log.warn(`Invalid reason attempt from IP: ${req.ip}: ${reason}`);
@@ -58,27 +53,6 @@ app.get(
       switch (reason) {
         case "Elimination":
           amount = 20;
-          break;
-        case "Win":
-          amount = 60;
-          break;
-        case "Top 3":
-          amount = 2;
-          break;
-        case "Top 7":
-          amount = 4;
-          break;
-        case "Top 12":
-          amount = 6;
-          break;
-        case "Bus Fare":
-          if (currentHype >= 14000) removeAmount = 10;
-          else if (currentHype >= 500) removeAmount = 8;
-          else if (currentHype >= 445) removeAmount = 8;
-          else if (currentHype >= 300) removeAmount = 8;
-          else if (currentHype >= 225) removeAmount = 5;
-          else if (currentHype >= 175) removeAmount = 3;
-          else if (currentHype >= 125) removeAmount = 1;
           break;
       }
 

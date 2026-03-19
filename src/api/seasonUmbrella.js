@@ -8,7 +8,7 @@ import log from "../Utils/log.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = 80;
+const PORT = 91;
 const SeasonNum = process.env.MAIN_SEASON;
 
 const connectToMongoDB = async () => {

@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = 78;
+const PORT = 93;
 const MAIN_SEASON = parseInt(process.env.MAIN_SEASON) || 0;
 
 const MAX_LEVEL = MAIN_SEASON < 11 ? 100 : 1000;
