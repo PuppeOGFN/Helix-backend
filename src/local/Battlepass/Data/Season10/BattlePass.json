@@ -1,0 +1,283 @@
+{
+  "name": "BRSeason10",
+  "catalogEntries": [
+    {
+      "offerId": "259920BC42F0AAC7C8672D856C9B622C",
+      "devName": "BR.Season10.BattlePass.01",
+      "offerType": "StaticPrice",
+      "prices": [
+        {
+          "currencyType": "MtxCurrency",
+          "currencySubType": "",
+          "regularPrice": 950,
+          "finalPrice": 950,
+          "saleExpiration": "9999-12-31T23:59:59.999Z",
+          "basePrice": 950
+        }
+      ],
+      "categories": [],
+      "dailyLimit": -1,
+      "weeklyLimit": -1,
+      "monthlyLimit": -1,
+      "refundable": false,
+      "appStoreId": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "requirements": [
+        {
+          "requirementType": "DenyOnFulfillment",
+          "requiredId": "259920BC42F0AAC7C8672D856C9B622C",
+          "minQuantity": 1
+        }
+      ],
+      "metaInfo": [
+        {
+          "key": "Preroll",
+          "value": "False"
+        }
+      ],
+      "catalogGroup": "",
+      "catalogGroupPriority": 0,
+      "sortPriority": 1,
+      "title": {
+        "en": "Battle Pass",
+        "es": "Pase de batalla",
+        "es-419": "Pase de batalla",
+        "fr": "Passe de combat",
+        "it": "Pass battaglia",
+        "ja": "バトルパス",
+        "ko": "배틀 패스",
+        "pl": "Pakiet bojowy",
+        "pt-BR": "Passe de Batalha",
+        "ru": "Боевой пропуск",
+        "tr": "Savaş Bileti",
+        "de": "Kampfpass"
+      },
+      "shortDescription": {
+        "en": "Season X",
+        "es": "",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "description": {
+        "en": "Season X Now through October 6.\n\nInstantly get these items <Bold>valued at over 10,000 V-Bucks</>.\n  • <ItemName>X-Lord</> Outfit\n  • <ItemName>Catalyst</> Outfit\n  • <ItemName>Tilted Teknique</> Outfit\n  • <ItemName>Junk Bucket</> Glider\n  • <ItemName>Emote Camo </> Wrap\n  • <ItemName> Rift Lightning </> Contrails\n  • 300 V-Bucks\n  • <ItemName>The Final Showdown </> Music Track\n  • <Bold>70% Bonus</> Season Match XP\n  • <Bold>80% Bonus</> Season Friend Match XP\n  • and more!\n\nPlay to level up your Battle Pass, unlocking <Bold>over 75 rewards</> (typically takes 75 to 150 hours of play).\n  • <Bold>4 more Outfits</>\n  • <Bold>1,000 V-Bucks</>\n  • 6 Emotes\n  • 4 Wraps\n  • 5 Harvesting Tools\n  • 1 Pet\n  • 6 Gliders\n  • 7 Back Blings\n  • 3 Contrails\n  • 13 Sprays\n  • 2 Music Tracks\n  • 1 Toy\n  • 23 Loading Screens\n  • and so much more!\nWant it all faster? You can use V-Bucks to buy tiers any time!",
+        "es": "pp",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "displayAssetPath": "/Game/Catalog/DisplayAssets/DA_BR_Season10_BattlePass.DA_BR_Season10_BattlePass",
+      "itemGrants": []
+    },
+    {
+      "offerId": "AF1B7AC14A5F6A9ED255B88902120757",
+      "devName": "BR.Season10.SingleTier.01",
+      "offerType": "StaticPrice",
+      "prices": [
+        {
+          "currencyType": "MtxCurrency",
+          "currencySubType": "",
+          "regularPrice": 150,
+          "dynamicRegularPrice": -1,
+          "finalPrice": 150,
+          "saleExpiration": "9999-12-31T23:59:59.999Z",
+          "basePrice": 150
+        }
+      ],
+      "categories": [],
+      "dailyLimit": -1,
+      "weeklyLimit": -1,
+      "monthlyLimit": -1,
+      "refundable": false,
+      "appStoreId": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "requirements": [],
+      "metaInfo": [
+        {
+          "key": "Preroll",
+          "value": "False"
+        }
+      ],
+      "catalogGroup": "",
+      "catalogGroupPriority": 0,
+      "sortPriority": 0,
+      "title": {
+        "eu": "Battle Pass Tier",
+        "es": "",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "shortDescription": {
+        "en": "",
+        "es": "",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "description": {
+        "en": "Get great rewards now!",
+        "es": "",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "displayAssetPath": "",
+      "itemGrants": []
+    },
+    {
+      "offerId": "73E6EE6F4526EF97450D1592C3DB0EF5",
+      "devName": "BR.Season10.BattleBundle.01",
+      "offerType": "StaticPrice",
+      "prices": [
+        {
+          "currencyType": "MtxCurrency",
+          "currencySubType": "",
+          "regularPrice": 4700,
+          "finalPrice": 2800,
+          "saleType": "PercentOff",
+          "saleExpiration": "9999-12-31T23:59:59.999Z",
+          "basePrice": 2800
+        }
+      ],
+      "categories": [],
+      "dailyLimit": -1,
+      "weeklyLimit": -1,
+      "monthlyLimit": -1,
+      "refundable": false,
+      "appStoreId": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "requirements": [
+        {
+          "requirementType": "DenyOnFulfillment",
+          "requiredId": "73E6EE6F4526EF97450D1592C3DB0EF5",
+          "minQuantity": 1
+        }
+      ],
+      "metaInfo": [
+        {
+          "key": "Preroll",
+          "value": "False"
+        }
+      ],
+      "catalogGroup": "",
+      "catalogGroupPriority": 0,
+      "sortPriority": 0,
+      "title": {
+        "en": "Battle Pass",
+        "es": "Pase de batalla",
+        "es-419": "Pase de batalla",
+        "fr": "Passe de combat",
+        "it": "Pass battaglia",
+        "ja": "バトルパス",
+        "ko": "배틀 패스",
+        "pl": "Pakiet bojowy",
+        "pt-BR": "Passe de Batalha",
+        "ru": "Боевой пропуск",
+        "tr": "Savaş Bileti",
+        "de": "Kampfpass"
+      },
+      "shortDescription": {
+        "en": "Battle Pass + 25 tiers!",
+        "es": "",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "description": {
+        "en": "Season X Now through October 6.\n\nInstantly get these items <Bold>valued at over 3,500 V-Bucks</>.\n  • <ItemName>X-Lord</> Outfit\n  • <ItemName>Catalyst</> Outfit\n  • <Bold>50% Bonus</> Season Match XP\n  • <Bold>60% Bonus</> Season Friend Match XP\n\nPlay to level up your Battle Pass, unlocking <Bold>over 100 rewards</> (typically takes 75 to 150 hours of play).\n  • <ItemName>Ultima Knight</> and <Bold>4 more Outfits</>\n  • <Bold>1,300 V-Bucks</>\n  • 7 Emotes\n  • 6 Wraps\n  • 6 Harvesting Tools\n  • 1 Pet\n  • 7 Gliders\n  • 7 Back Blings\n  • 5 Contrails\n  • 17 Sprays\n  • 3 Music Tracks\n  • 1 Toy\n  • 27 Loading Screens\n  • and so much more!\nWant it all faster? You can use V-Bucks to buy tiers any time!",
+        "es": "pp",
+        "es-419": "",
+        "fr": "",
+        "it": "",
+        "ja": "",
+        "ko": "",
+        "pl": "",
+        "pt-BR": "",
+        "ru": "",
+        "tr": "",
+        "de": ""
+      },
+      "displayAssetPath": "/Game/Catalog/DisplayAssets/DA_BR_Season10_BattlePassWithLevels.DA_BR_Season10_BattlePassWithLevels",
+      "itemGrants": []
+    }
+  ]
+}

@@ -1,0 +1,1354 @@
+{
+   "events": [
+      {
+         "announcementTime": "2024-09-01T10:55:19+02:00",
+         "appId": null,
+         "beginTime": "2024-08-30T02:59:35+02:00",
+         "displayDataId": "LG_ARENA_SOLO",
+         "endTime": "9999-12-31T23:59:59.000Z",
+         "environment": null,
+         "eventGroup": "",
+         "eventId": "cjdz2smhk34dtjpq8x3jh91n",
+         "eventWindows": [
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division1_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division1_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 250,
+                  "divisionRank": 0
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 0,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division2_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division2_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 500,
+                  "divisionRank": 1
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 1,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division3_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division3_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 1000,
+                  "divisionRank": 2
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 2,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division4_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division4_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 1500,
+                  "divisionRank": 3
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 3,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division5_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division5_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 2500,
+                  "divisionRank": 4
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 4,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division6_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division6_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 4000,
+                  "divisionRank": 5
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 5,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division7_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division7_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 6000,
+                  "divisionRank": 6
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 6,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division8_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division8_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 12000,
+                  "divisionRank": 7
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 7,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division9_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division9_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 16000,
+                  "divisionRank": 8
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "round": 8,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            },
+            {
+               "additionalRequirements": [],
+               "beginTime": "2024-08-30T02:59:35+02:00",
+               "blackoutPeriods": [],
+               "canLiveSpectate": false,
+               "countdownBeginTime": "2023-06-15T15:00:00.000Z",
+               "endTime": "9999-12-31T23:59:59.000Z",
+               "eventTemplateId": "Arena_skunkyskunkyseason_Division10_LGSolo",
+               "eventWindowId": "Arena_skunkyskunkyseason_Division10_LGSolo",
+               "isTBD": false,
+               "metadata": {
+                  "RoundType": "Arena",
+                  "ThresholdToAdvanceDivision": 9999999999,
+                  "divisionRank": 9
+               },
+               "payoutDelay": 1,
+               "requireAllTokens": [
+                  "LG_ARENA_skunkyskunkyseason_Division1",
+                  "LG_ARENA_skunkyskunkyseason_Division2",
+                  "LG_ARENA_skunkyskunkyseason_Division3",
+                  "LG_ARENA_skunkyskunkyseason_Division4",
+                  "LG_ARENA_skunkyskunkyseason_Division5",
+                  "LG_ARENA_skunkyskunkyseason_Division6",
+                  "LG_ARENA_skunkyskunkyseason_Division7",
+                  "LG_ARENA_skunkyskunkyseason_Division8",
+                  "LG_ARENA_skunkyskunkyseason_Division9",
+                  "LG_ARENA_skunkyskunkyseason_Division10"
+               ],
+               "requireAllTokensCaller": [],
+               "requireAnyTokens": [],
+               "requireAnyTokensCaller": [],
+               "requireNoneTokensCaller": [],
+               "round": 9,
+               "scoreLocations": [
+                  {
+                     "scoreId": "Hype",
+                     "scoreMode": "persistent"
+                  }
+               ],
+               "teammateEligibility": "any",
+               "visibility": "public"
+            }
+         ],
+         "gameId": "Fortnite",
+         "link": null,
+         "metadata": {
+            "TrackedStats": [
+               "PLACEMENT_STAT_INDEX",
+               "TEAM_ELIMS_STAT_INDEX",
+               "MATCH_PLAYED_STAT"
+            ],
+            "minimumAccountLevel": 0
+         },
+         "platformMappings": {},
+         "platforms": [
+            "PS4",
+            "XboxOne",
+            "Switch",
+            "Android",
+            "IOS",
+            "Windows"
+         ],
+         "regionMappings": {},
+         "regions": [
+            "NAE",
+            "ME",
+            "NAW",
+            "OCE",
+            "ASIA",
+            "EU",
+            "BR"
+         ]
+      },
+      {
+         "gameId": "Fortnite",
+         "eventId": "helixlg_cup",
+         "beginTime": "2025-4-1T17:00:00Z",
+         "endTime": "2025-4-1T20:00:00Z",
+         "displayDataId": "helixlg",
+         "eventGroup": "helixlg_group",
+         "announcementTime": "2025-04-3T08:00:00Z",
+         "regions": [
+            "NAE"
+         ],
+         "regionMappings": {},
+         "platforms": [
+            "Windows"
+         ],
+         "platformMappings": {},
+         "appId": null,
+         "environment": null,
+         "metadata": {
+            "TeamLockType": "Window",
+            "minimumAccountLevel": 1,
+            "DisqualifyType": "Window",
+            "RegionLockType": "Window",
+            "AccountLockType": "Window",
+            "TrackedStats": [
+               "PLACEMENT_STAT_INDEX",
+               "TEAM_ELIMS_STAT_INDEX",
+               "MATCH_PLAYED_STAT"
+            ]
+         },
+         "eventWindows": [
+            {
+               "eventWindowId": "helixlg_cup1",
+               "eventTemplateId": "helixlg_cups",
+               "countdownBeginTime": "2025-3-31T15:00:00Z",
+               "beginTime": "2025-4-1T17:00:00Z",
+               "endTime": "2025-4-1T20:00:00Z",
+               "round": 0,
+               "payoutDelay": 32,
+               "isTBD": false,
+               "leaderboardId": "helixcupleaderboardId",
+               "visibility": "public",
+               "teammateEligibility": "all",
+               "blackoutPeriods": [],
+               "scoreLocations": [
+                  {
+                     "leaderboardId": "helixcupleaderboardId2",
+                     "leaderboardDefId": "helixcupleaderboardId",
+                     "scoreId": null,
+                     "scoreMode": "window",
+                     "isMainWindowLeaderboard": true,
+                     "windowEndCondition": null
+                  }
+               ],
+               "canLiveSpectate": false,
+               "requireAllTokens": [],
+               "requireAnyTokens": [],
+               "requireNoneTokensCaller": [],
+               "requireAllTokensCaller": [],
+               "requireAnyTokensCaller": [],
+               "additionalRequirements": [],
+               "regionMappings": null,
+               "metadata": {
+                  "ServerReplays": false,
+                  "RoundType": "Qualifiers",
+                  "liveSpectateAccessToken": "WeeklyTournamentSpectator"
+               }
+            }
+         ],
+         "link": {
+            "type": "br:tournament",
+            "code": "helix_lg",
+            "version": 1
+         }
+      }
+   ],
+   "player": {
+      "accountId": "skunkyskunkyaccountid",
+      "gameId": "Fortnite",
+      "groupIdentity": {},
+      "pendingPayouts": [],
+      "pendingPenalties": {},
+      "persistentScores": {
+         "Hype": skunkyskunkyhype
+      },
+      "teams": {
+         "floating:Hype": [
+            "skunkyskunkyaccountid"
+         ]
+      },
+      "tokens": [ skunkyskunkydivision
+      ]
+   },
+   "templates": [
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division1_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division3"
+                     }
+                  ],
+                  "threshold": 0
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 20
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 0
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division2_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division4"
+                     }
+                  ],
+                  "threshold": 250
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 20
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 0
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division3_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division5"
+                     }
+                  ],
+                  "threshold": 500
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 20
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 0
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division4_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division6"
+                     }
+                  ],
+                  "threshold": 1000
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 20
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -10
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division5_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division7"
+                     }
+                  ],
+                  "threshold": 1500
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -20
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division6_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division8"
+                     }
+                  ],
+                  "threshold": 2500
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -30
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division7_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division9"
+                     }
+                  ],
+                  "threshold": 4000
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -40
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division8_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division10"
+                     }
+                  ],
+                  "threshold": 6000
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -50
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division9_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division1"
+                     }
+                  ],
+                  "threshold": 12000
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -60
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            }
+         ]
+      },
+      {
+         "eventTemplateId": "Arena_skunkyskunkyseason_Division10_LGSolo",
+         "gameId": "Fortnite",
+         "matchCap": -1,
+         "payoutTable": {
+            "ranks": [
+               {
+                  "payouts": [
+                     {
+                        "quantity": 1,
+                        "rewardMode": "rolling",
+                        "rewardType": "token",
+                        "value": "LG_ARENA_skunkyskunkyseason_Division1"
+                     }
+                  ],
+                  "threshold": 16000
+               }
+            ],
+            "scoreId": "Hype",
+            "scoringType": "value"
+         },
+         "persistentScoreId": "Hype",
+         "playlistId": "Playlist_ShowdownAlt_Solo",
+         "scoringRules": [
+            {
+               "matchRule": "lte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  },
+                  {
+                     "keyValue": 5,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 15,
+                     "multiplicative": false,
+                     "pointsEarned": 30
+                  },
+                  {
+                     "keyValue": 25,
+                     "multiplicative": false,
+                     "pointsEarned": 60
+                  }
+               ],
+               "trackedStat": "PLACEMENT_STAT_INDEX"
+            },
+            {
+               "matchRule": "gte",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": true,
+                     "pointsEarned": 10
+                  }
+               ],
+               "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+            },
+            {
+               "matchRule": "gtw",
+               "rewardTiers": [
+                  {
+                     "keyValue": 1,
+                     "multiplicative": false,
+                     "pointsEarned": -70
+                  }
+               ],
+               "trackedStat": "MATCH_PLAYED_STAT"
+            },
+            {
+               "eventTemplateId": "helixlg_cups",
+               "gameId": "Fortnite",
+               "playlistId": "Playlist_ShowdownTournament_Solo",
+               "matchCap": 6,
+               "liveSessionAttributes": [],
+               "scoringRules": [
+                  {
+                     "matchRule": "lte",
+                     "rewardTiers": [
+                        {
+                           "keyValue": 1,
+                           "multiplicative": false,
+                           "pointsEarned": 25
+                        },
+                        {
+                           "keyValue": 5,
+                           "multiplicative": false,
+                           "pointsEarned": 15
+                        },
+                        {
+                           "keyValue": 15,
+                           "multiplicative": false,
+                           "pointsEarned": 10
+                        },
+                        {
+                           "keyValue": 25,
+                           "multiplicative": false,
+                           "pointsEarned": 5
+                        }
+                     ],
+                     "trackedStat": "PLACEMENT_STAT_INDEX"
+                  },
+                  {
+                     "matchRule": "lte",
+                     "rewardTiers": [
+                        {
+                           "keyValue": 1,
+                           "multiplicative": true,
+                           "pointsEarned": 20
+                        }
+                     ],
+                     "trackedStat": "TEAM_ELIMS_STAT_INDEX"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

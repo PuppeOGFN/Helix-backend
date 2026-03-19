@@ -1,0 +1,392 @@
+{
+    "_title": "Fortnite Game",
+    "_activeDate": "2017-08-30T03:20:48.050Z",
+    "lastModified": "2019-11-01T17:33:35.346Z",
+    "_locale": "en-US",
+    "loginmessage": {
+        "_title": "LoginMessage",
+        "loginmessage": {
+            "_type": "CommonUI Simple Message",
+            "message": {
+                "_type": "CommonUI Simple Message Base",
+                "title": "Nebula Services",
+                "body": "Wellcome to Nebula Services Backend!"
+            }
+        },
+        "_activeDate": "2017-07-19T13:14:04.490Z",
+        "lastModified": "2018-03-15T07:10:22.222Z",
+        "_locale": "en-US"
+    },
+    "subgameselectdata": {
+        "saveTheWorldUnowned": {
+            "_type": "CommonUI Simple Message",
+            "message": {
+                "image": "",
+                "hidden": false,
+                "messagetype": "normal",
+                "_type": "CommonUI Simple Message Base",
+                "title": {
+                    "de": "Koop-PvE",
+                    "ru": "Сюжетная PvE-кампания",
+                    "ko": "팀과 함께 플레이하는 PvE",
+                    "en": "Co-op PvE",
+                    "it": "PvE co-op",
+                    "fr": "JcE coopératif",
+                    "es": "JcE cooperativo",
+                    "ar": "Co-op PvE",
+                    "ja": "協力PvE",
+                    "pl": "Kooperacyjny tryb PvE",
+                    "es-419": "JcE cooperativo",
+                    "tr": "Oyuncularla Birlikte PvE"
+                },
+                "body": {
+                    "de": "PVE-Modus, in dem du den Sturm kooperativ bekämpfst!",
+                    "ru": "Совместное сражение с Бурей!",
+                    "ko": "배틀로얄을 플레이하려면 상단의 \"배틀로얄\" 버튼을 클릭하세요.\n\n팀과 함께하는 PvE 모드, 폭풍과 싸우는 어드벤처!",
+                    "en": "Cooperative PvE storm-fighting adventure!",
+                    "it": "Avventura tempestosa cooperativa PvE!",
+                    "fr": "Une aventure en JcE coopératif pour combattre la tempête !",
+                    "es": "¡Aventura cooperativa JcE de lucha contra la tormenta!",
+                    "ar": "Cooperative PvE storm-fighting adventure!",
+                    "ja": "PvE協力プレイでストームに立ち向かえ！",
+                    "pl": "Kooperacyjne zmagania PvE z burzą i pustakami!",
+                    "es-419": "¡Aventura de lucha contra la tormenta en un JcE cooperativo!",
+                    "tr": "Diğer oyuncularla birlikte PvE fırtınayla savaşma macerası!"
+                },
+                "spotlight": false
+            }
+        },
+        "_title": "subgameselectdata",
+        "battleRoyale": {
+            "_type": "CommonUI Simple Message",
+            "message": {
+                "image": "",
+                "hidden": false,
+                "messagetype": "normal",
+                "_type": "CommonUI Simple Message Base",
+                "title": {
+                    "de": "100-Spieler-PvP",
+                    "ru": "PvP-режим на 100 игроков",
+                    "ko": "100명의 플레이어와 함께하는 PvP",
+                    "en": "100 Player PvP",
+                    "it": "PvP a 100 giocatori",
+                    "fr": "JcJ à 100 joueurs",
+                    "es": "JcJ de 100 jugadores",
+                    "ar": "100 Player PvP",
+                    "ja": "100人参加のPvP",
+                    "pl": "PvP dla 100 graczy",
+                    "es-419": "JcJ de 100 jugadores",
+                    "tr": "100 Oyunculu PvP"
+                },
+                "body": {
+                    "de": "Battle Royale, 100-Spieler-PvP.\n\nFortschritte im PvE haben keinen Einfluss auf Battle Royale.",
+                    "ru": "PvP-режим на 100 игроков «Королевская битва».\n\nПрогресс в кампании не затрагивает «Королевскую битву».",
+                    "ko": "100명의 플레이어와 함께하는 PvP 모드, 배틀로얄.\n\nPvE 모드의 진행 상황은 배틀로얄 플레이에 영향을 주지 않습니다.",
+                    "en": "100 Player PvP Battle Royale.\n\nPvE progress does not affect Battle Royale.",
+                    "it": "Battaglia reale PvP a 100 giocatori.\n\nI progressi in PvE non sono trasferiti nella Battaglia reale.",
+                    "fr": "Un Battle Royale à 100 en JcJ.\n\nLa progression du mode JcE n'affecte pas Battle Royale.",
+                    "es": "Battle Royale JcJ de 100 jugadores.\n\nEl progreso JcE no afecta a Battle Royale.",
+                    "ar": "100 Player PvP Battle Royale.\n\nPvE progress does not affect Battle Royale.",
+                    "ja": "100人参加のPvPバトルロイヤル。\n\nPvEモードの進行状況はバトルロイヤルに影響しません。",
+                    "pl": "Battle Royale: PvP dla 100 graczy\n\nPostępy w kampanii nie wpływają na grę w Battle Royale.",
+                    "es-419": "Batalla campal JcJ de 100 jugadores.\n\nEl progreso de JcE no afecta Batalla campal.",
+                    "tr": "100 Oyunculu PvP Battle Royale. PvE ilerlemesi Battle Royale'i etkilemez."
+                },
+                "spotlight": false
+            }
+        }
+    },
+    "playlistinformation": {
+        "frontend_matchmaking_header_style": "None",
+        "_title": "playlistinformation",
+        "frontend_matchmaking_header_text": "",
+        "playlist_info": {
+            "_type": "Playlist Information",
+            "playlists": [
+                {
+                    "image": "https://cdn.discordapp.com/attachments/1322812407587930152/1360939424782880768/S13Solo.png?ex=67fcf11b&is=67fb9f9b&hm=bb95e9558448e8b911a161dc5ec73a1c09b05ca21973ba0af7dbe723dbc1322f&",
+                    "playlist_name": "Playlist_DefaultSolo",
+                    "hidden": false,
+                    "display_name": "Lategame Solos",
+                    "description": "skibiid",
+                    "special_border": "HighStakes",
+                    "_type": "FortPlaylistInfo"
+                },
+                {
+                    "image": "https://i.imgur.com/99n3n0m.jpg",
+                    "playlist_name": "Playlist_DefaultDuo",
+                    "hidden": true,
+                    "special_border": "None",
+                    "_type": "FortPlaylistInfo"
+                },
+                {
+                    "image": "",
+                    "playlist_name": "Playlist_Trios",
+                    "hidden": true,
+                    "_type": "FortPlaylistInfo"
+                },
+                {
+                    "image": "https://i.imgur.com/YA4ssMv.jpg",
+                    "playlist_name": "Playlist_DefaultSquad",
+                    "hidden": true,
+                    "special_border": "None",
+                    "_type": "FortPlaylistInfo"
+                }
+            ]
+        },
+        "_noIndex": false,
+        "_activeDate": "2018-04-25T15:05:39.956Z",
+        "lastModified": "2019-10-29T14:05:17.030Z",
+        "_locale": "en-US"
+    },
+    "sparkTracks": {
+        "_title": "spark-tracks",
+        "_noIndex": false,
+        "_activeDate": "2023-10-06T04:15:09.015Z",
+        "lastModified": "2023-10-06T04:15:55.135Z",
+        "_locale": "en-US",
+        "_templateName": "blank"
+    },
+    "tournamentinformation": {
+        "tournament_info": {
+            "tournaments": [
+                {
+                    "title_color": "FFFFFF",
+                    "loading_screen_image": "https://cdn2.unrealengine.com/Fortnite%2Ffortnite-game%2Ftournaments%2FArena_ModeSelect_Generic_Solo4-1024x512-8a00c8b712843e0af102a7a43629f50c8987d927.png",
+                    "background_text_color": "1B1B1B",
+                    "background_right_color": "DD091A",
+                    "poster_back_image": "https://cdn2.unrealengine.com/Fortnite%2Ffortnite-game%2Ftournaments%2FArena_ModeSelect_Generic_Solo4-1024x512-8a00c8b712843e0af102a7a43629f50c8987d927.png",
+                    "_type": "Tournament Display Info",
+                    "pin_earned_text": "Sam is the winner!",
+                    "tournament_display_id": "LG_ARENA_SOLO",
+                    "highlight_color": "FFFFFF",
+                    "schedule_info": "November 2nd & 3rd: 2pm - 5pm JST",
+                    "primary_color": "FFFFFF",
+                    "flavor_description": "cool",
+                    "poster_front_image": "https://cdn2.unrealengine.com/Fortnite%2Ffortnite-game%2Ftournaments%2FArena_ModeSelect_Generic_Solo4-1024x512-8a00c8b712843e0af102a7a43629f50c8987d927.png",
+                    "short_format_title": "Event Sessions",
+                    "title_line_2": "Lategame Arena",
+                    "title_line_1": "Solo",
+                    "shadow_color": "1B1B1B",
+                    "details_description": "ok",
+                    "background_left_color": "F81B2D",
+                    "long_format_title": "nice",
+                    "poster_fade_color": "DD091A",
+                    "secondary_color": "1B1B1B",
+                    "playlist_tile_image": "https://cdn2.unrealengine.com/Fortnite%2Ffortnite-game%2Ftournaments%2FArena_ModeSelect_Generic_Solo4-1024x512-8a00c8b712843e0af102a7a43629f50c8987d927.png",
+                    "base_color": "FFFFFF"
+                }
+            ],
+            "_type": "Tournaments Info"
+        },
+        "_title": "tournamentinformation",
+        "_noIndex": false,
+        "_activeDate": "2018-11-13T22:32:47.734Z",
+        "lastModified": "2019-11-01T17:33:35.346Z",
+        "_locale": "en-US"
+    },
+    "emergencynotice": {
+        "news": {
+            "_type": "Battle Royale News",
+            "messages": [
+                {
+                    "hidden": false,
+                    "_type": "CommonUI Simple Message Base",
+                    "title": "Nebula Services",
+                    "body": "This backend is currently on its beta phase, please report any issues in the discord",
+                    "spotlight": true
+                }
+            ]
+        },
+        "_title": "emergencynotice",
+        "_noIndex": false,
+        "alwaysShow": false,
+        "_activeDate": "2018-08-06T19:00:26.217Z",
+        "lastModified": "2019-10-29T22:32:52.686Z",
+        "_locale": "en-US"
+    },
+    "emergencynoticev2": {
+        "jcr:isCheckedOut": true,
+        "_title": "emergencynoticev2",
+        "_noIndex": false,
+        "jcr:baseVersion": "a7ca237317f1e771e921e2-7f15-4485-b2e2-553b809fa363",
+        "emergencynotices": {
+            "_type": "Emergency Notices",
+            "emergencynotices": [
+                {
+                    "gamemodes": [],
+                    "hidden": false,
+                    "_type": "CommonUI Emergency Notice Base",
+                    "title": "Nebula Services",
+                    "body": "This backend is currently on its beta phase, please report any issues in the discord"
+                }
+            ]
+        },
+        "_activeDate": "2018-08-06T19:00:26.217Z",
+        "lastModified": "2021-12-01T15:55:56.012Z",
+        "_locale": "en-US"
+    },
+    "subgameinfo": {
+        "battleroyale": {
+            "image": "",
+            "color": "1164c1",
+            "_type": "Subgame Info",
+            "description": {
+                "de": "100 Spieler PvP",
+                "ru": "PVP-режим на 100 игроков",
+                "ko": "100인 플레이어 PvP",
+                "en": "100 Player PvP",
+                "it": "PvP a 100 giocatori",
+                "fr": "JcJ à 100 joueurs",
+                "es": "JcJ de 100 jugadores",
+                "ar": "100 لاعب ضد لاعب",
+                "ja": "プレイヤー100人によるPvP",
+                "pl": "PvP dla 100 graczy",
+                "es-419": "JcJ de 100 jugadores",
+                "tr": "100 Oyunculu PVP"
+            },
+            "subgame": "battleroyale",
+            "standardMessageLine2": "",
+            "title": {
+                "de": "Battle Royale",
+                "ru": "Battle Royale",
+                "ko": "Battle Royale",
+                "en": "Battle Royale",
+                "it": "Battaglia reale",
+                "fr": "Battle Royale",
+                "es": "Battle Royale",
+                "ar": "Battle Royale",
+                "ja": "Battle Royale",
+                "pl": "Battle Royale",
+                "es-419": "Batalla campal",
+                "tr": "Battle Royale"
+            },
+            "standardMessageLine1": ""
+        },
+        "_title": "SubgameInfo",
+        "_noIndex": false,
+        "creative": {
+            "image": "",
+            "color": "13BDA1FF",
+            "_type": "Subgame Info",
+            "description": {
+                "de": "Deine Inseln. Deine Freunde. Deine Regeln.",
+                "ru": "Ваши острова. Ваши друзья. Ваши правила.",
+                "ko": "나의 섬. 나의 친구. 나의 규칙.",
+                "en": "Your Islands. Your Friends. Your Rules.",
+                "it": "Le tue isole. I tuoi amici. Le tue regole.",
+                "fr": "Vos îles, vos amis, vos règles.",
+                "es": "Tus islas. Tus amigos. Tus reglas.",
+                "ar": "جزرك. أصدقاؤك. قواعدك.",
+                "ja": "自分の島。自分のフレンド。自分のルール。",
+                "pl": "Twoje wyspa, twoi znajomi, twoje zasady.",
+                "es-419": "Tus islas. Tus amigos. Tus reglas.",
+                "tr": "Senin Adaların. Senin Dostların. Senin Kuralların."
+            },
+            "subgame": "creative",
+            "title": {
+                "de": "Kreativmodus",
+                "ru": "Творческийрежим",
+                "ko": "포크리",
+                "en": "Creative",
+                "it": "Modalità creativa",
+                "fr": "Mode Créatif",
+                "es": "Modo Creativo",
+                "ar": "Creative",
+                "ja": "クリエイティブ",
+                "pl": "Tryb kreatywny",
+                "es-419": "Modo Creativo",
+                "tr": "Kreatif"
+            },
+            "standardMessageLine1": ""
+        },
+        "_activeDate": "2019-05-02T16:48:47.429Z",
+        "lastModified": "2019-10-29T12:44:06.577Z",
+        "_locale": "en-US"
+    },
+    "battleroyalenews": {
+        "news": {
+            "_type": "Battle Royale News",
+            "motds": [
+                {
+                    "entryType": "Website",
+                    "image": "https://wallpapers.com/images/high/fortnite-battle-royale-desktop-sv5ysrlwjlxf4b93.png",
+                    "tileImage": "https://wallpapers.com/images/high/fortnite-battle-royale-desktop-sv5ysrlwjlxf4b93.png",
+                    "videoMute": false,
+                    "hidden": false,
+                    "tabTitleOverride": "Nebula",
+                    "_type": "CommonUI Simple Message MOTD",
+                    "title": "Welcome",
+                    "body": "Need help? join the Nebula Services Discord Server!",
+                    "offerAction": "ShowOfferDetails",
+                    "videoLoop": false,
+                    "videoStreamingEnabled": false,
+                    "sortingPriority": 1,
+                    "websiteButtonText": "Discord",
+                    "websiteURL": "https://discord.gg/BMQ4x3xzK3",
+                    "id": "61fb3dd8-f23d-45cc-9058-058ab223ba5cs",
+                    "videoAutoplay": false,
+                    "videoFullscreen": false,
+                    "spotlight": false
+                }
+            ]
+        },
+        "_title": "battleroyalenews",
+        "header": "",
+        "style": "SpecialEvent",
+        "_noIndex": false,
+        "alwaysShow": false,
+        "_activeDate": "2018-08-17T16:00:00.000Z",
+        "lastModified": "2019-10-31T20:29:39.334Z",
+        "_locale": "en-US"
+    },
+    "dynamicbackgrounds": {
+        "backgrounds": {
+            "backgrounds": [
+                {
+                    "stage": "season11",
+                    "_type": "DynamicBackground",
+                    "key": "lobby"
+                }
+            ],
+            "_type": "DynamicBackgroundList"
+        },
+        "_title": "dynamicbackgrounds",
+        "_noIndex": false,
+        "_activeDate": "2019-08-21T15:59:59.342Z",
+        "lastModified": "2019-10-29T13:07:27.936Z",
+        "_locale": "en-US",
+        "_templateName": "FortniteGameDynamicBackgrounds"
+    },
+    "shopSections": {
+        "_title": "shop-sections",
+        "sectionList": {
+            "_type": "ShopSectionList",
+            "sections": [
+                {
+                    "bSortOffersByOwnership": false,
+                    "bShowIneligibleOffersIfGiftable": false,
+                    "bEnableToastNotification": true,
+                    "background": {
+                        "stage": "default",
+                        "_type": "DynamicBackground",
+                        "key": "vault"
+                    },
+                    "_type": "ShopSection",
+                    "landingPriority": 70,
+                    "bHidden": false,
+                    "sectionId": "Featured",
+                    "bShowTimer": true,
+                    "sectionDisplayName": "Item Shop",
+                    "bShowIneligibleOffers": true
+                }
+            ]
+        },
+        "_noIndex": false,
+        "_activeDate": "2022-12-01T23:45:00.000Z",
+        "lastModified": "2022-12-01T21:50:44.089Z",
+        "_locale": "en-US",
+        "_templateName": "FortniteGameShopSections"
+    },
+    "_suggestedPrefetch": []
+}

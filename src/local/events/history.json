@@ -1,0 +1,31 @@
+[
+  {
+    "scoreKey": {
+      "gameId": "Fortnite",
+      "eventId": "epicgames_S15_LazarAndFreshSuperKnockback_NAE",
+      "eventWindowId": "S15_LazarAndFreshSuperKnockback_NAE_Event1",
+      "_scoreId": null
+    },
+    "teamId": "",
+    "teamAccountIds": [],
+    "liveSessionId": null,
+    "pointsEarned": 60,
+    "score": 0,
+    "rank": 1,
+    "percentile": 0,
+    "pointBreakdown": {
+      "TEAM_ELIMS_STAT_INDEX:1": {
+        "timesAchieved": 8,
+        "pointsEarned": 5
+      },
+      "PLACEMENT_STAT_INDEX:2": {
+        "timesAchieved": 7,
+        "pointsEarned": 64
+      }
+    },
+    "sessionHistory": [
+      {}
+    ],
+    "unscoredSessions": []
+  }
+]
