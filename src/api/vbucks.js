@@ -9,21 +9,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const PORT = 92;
-const API_KEY = "84059365-25d6-486f-81f3-04b306828c35";
-
-const connectToMongoDB = async () => {
-  try {
-    mongoose.set("strictQuery", true);
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-  } catch (error) {
-    log.error(`MongoDB connection error: ${error.message}`);
-    process.exit(1);
-  }
-};
-
 const app = express();
 app.use(express.json());
 
@@ -35,7 +20,7 @@ app.get(
     const vbucksAmount = parseInt(amount);
 
     try {
-      if (apiKey !== API_KEY) {
+      if (apiKey !== process.env.API_KEY) {
         log.api(`Invalid API key attempt from IP: ${req.ip}`);
         return res.status(401).json({ error: "Invalid API key" });
       }
