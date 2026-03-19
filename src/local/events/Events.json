@@ -589,32 +589,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -624,17 +598,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 0
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -663,32 +626,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -698,17 +635,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 0
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -737,32 +663,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -772,17 +672,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 0
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -811,32 +700,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -846,17 +709,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -10
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -885,32 +737,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -920,17 +746,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -20
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -959,32 +774,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -994,17 +783,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -30
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -1033,32 +811,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -1068,17 +820,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -40
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -1107,32 +848,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -1142,19 +857,8 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -50
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
-         ]
+         ]    
       },
       {
          "eventTemplateId": "Arena_skunkyskunkyseason_Division9_LGSolo",
@@ -1181,32 +885,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -1216,17 +894,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -60
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
             }
          ]
       },
@@ -1255,32 +922,6 @@
          "playlistId": "Playlist_ShowdownAlt_Solo",
          "scoringRules": [
             {
-               "matchRule": "lte",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  },
-                  {
-                     "keyValue": 5,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 15,
-                     "multiplicative": false,
-                     "pointsEarned": 30
-                  },
-                  {
-                     "keyValue": 25,
-                     "multiplicative": false,
-                     "pointsEarned": 60
-                  }
-               ],
-               "trackedStat": "PLACEMENT_STAT_INDEX"
-            },
-            {
                "matchRule": "gte",
                "rewardTiers": [
                   {
@@ -1290,63 +931,6 @@
                   }
                ],
                "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-            },
-            {
-               "matchRule": "gtw",
-               "rewardTiers": [
-                  {
-                     "keyValue": 1,
-                     "multiplicative": false,
-                     "pointsEarned": -70
-                  }
-               ],
-               "trackedStat": "MATCH_PLAYED_STAT"
-            },
-            {
-               "eventTemplateId": "helixlg_cups",
-               "gameId": "Fortnite",
-               "playlistId": "Playlist_ShowdownTournament_Solo",
-               "matchCap": 6,
-               "liveSessionAttributes": [],
-               "scoringRules": [
-                  {
-                     "matchRule": "lte",
-                     "rewardTiers": [
-                        {
-                           "keyValue": 1,
-                           "multiplicative": false,
-                           "pointsEarned": 25
-                        },
-                        {
-                           "keyValue": 5,
-                           "multiplicative": false,
-                           "pointsEarned": 15
-                        },
-                        {
-                           "keyValue": 15,
-                           "multiplicative": false,
-                           "pointsEarned": 10
-                        },
-                        {
-                           "keyValue": 25,
-                           "multiplicative": false,
-                           "pointsEarned": 5
-                        }
-                     ],
-                     "trackedStat": "PLACEMENT_STAT_INDEX"
-                  },
-                  {
-                     "matchRule": "lte",
-                     "rewardTiers": [
-                        {
-                           "keyValue": 1,
-                           "multiplicative": true,
-                           "pointsEarned": 20
-                        }
-                     ],
-                     "trackedStat": "TEAM_ELIMS_STAT_INDEX"
-                  }
-               ]
             }
          ]
       }

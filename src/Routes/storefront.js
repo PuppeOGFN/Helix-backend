@@ -15,6 +15,12 @@ const __dirname = dirname(__filename);
 const keychain = JSON.parse(
   fs.readFileSync("./src/local/KeyChain/keychain.json", "utf8")
 );
+
+function readCatalogConfig() {
+  const catalogPath = path.join(__dirname, "../local/Storefront/catalog_config.json");
+  return JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+}
+
 app.get("/fortnite/api/storefront/v2/catalog", (req, res) => {
   if (!req.headers["user-agent"]) {
     return res.status(400).end();
@@ -23,12 +29,11 @@ app.get("/fortnite/api/storefront/v2/catalog", (req, res) => {
     return res.status(404).end();
   }
 
-  const catalogPath = path.join(__dirname, "../local/Storefront/catalog.json");
   try {
-    const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+    const catalog = readCatalogConfig();
     res.json(catalog);
   } catch (err) {
-    console.log("Failed to load catalog.json:", err);
+    console.log("Failed to load catalog_config.json:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -109,7 +114,20 @@ app.get("/fortnite/api/storefront/v2/keychain", (req, res) => {
   res.json(keychain);
 });
 app.get("/catalog/api/shared/bulk/offers", (req, res) => {
-  res.json({});
+  try {
+    const catalog = readCatalogConfig();
+    const offers = (catalog.storefronts || []).flatMap((storefront) =>
+      (storefront.catalogEntries || []).map((entry) => ({
+        storefront: storefront.name,
+        ...entry,
+      }))
+    );
+
+    res.json({ offers });
+  } catch (err) {
+    console.log("Failed to load catalog_config.json:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 export default app;
 //# sourceMappingURL=storefront.js.map

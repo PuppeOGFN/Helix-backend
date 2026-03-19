@@ -414,7 +414,7 @@ export default class Utils {
   static getOfferID(offerId) {
     const catalog = JSON.parse(
       fs.readFileSync(
-        path.join(__dirname, "../local/Storefront/catalog.json"),
+        path.join(__dirname, "../local/Storefront/catalog_config.json"),
         "utf8"
       )
     );

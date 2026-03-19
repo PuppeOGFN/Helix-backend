@@ -9,8 +9,8 @@
             "_type": "CommonUI Simple Message",
             "message": {
                 "_type": "CommonUI Simple Message Base",
-                "title": "Nebula Services",
-                "body": "Wellcome to Nebula Services Backend!"
+                "title": "",
+                "body": ""
             }
         },
         "_activeDate": "2017-07-19T13:14:04.490Z",
@@ -104,12 +104,10 @@
             "_type": "Playlist Information",
             "playlists": [
                 {
-                    "image": "https://cdn.discordapp.com/attachments/1322812407587930152/1360939424782880768/S13Solo.png?ex=67fcf11b&is=67fb9f9b&hm=bb95e9558448e8b911a161dc5ec73a1c09b05ca21973ba0af7dbe723dbc1322f&",
+                    "image": "https://i.imgur.com/zr4Fnnp.jpg",
                     "playlist_name": "Playlist_DefaultSolo",
                     "hidden": false,
-                    "display_name": "Lategame Solos",
-                    "description": "skibiid",
-                    "special_border": "HighStakes",
+                    "special_border": "None",
                     "_type": "FortPlaylistInfo"
                 },
                 {
@@ -192,8 +190,8 @@
                 {
                     "hidden": false,
                     "_type": "CommonUI Simple Message Base",
-                    "title": "Nebula Services",
-                    "body": "This backend is currently on its beta phase, please report any issues in the discord",
+                    "title": "Helix Backend",
+                    "body": "All credits to Sam for backend and Puppe for modifications.",
                     "spotlight": true
                 }
             ]
@@ -217,8 +215,8 @@
                     "gamemodes": [],
                     "hidden": false,
                     "_type": "CommonUI Emergency Notice Base",
-                    "title": "Nebula Services",
-                    "body": "This backend is currently on its beta phase, please report any issues in the discord"
+                    "title": "Helix Backend",
+                    "body": "All credits to Sam for backend and Puppe for modifications."
                 }
             ]
         },
@@ -310,20 +308,20 @@
             "motds": [
                 {
                     "entryType": "Website",
-                    "image": "https://wallpapers.com/images/high/fortnite-battle-royale-desktop-sv5ysrlwjlxf4b93.png",
-                    "tileImage": "https://wallpapers.com/images/high/fortnite-battle-royale-desktop-sv5ysrlwjlxf4b93.png",
+                    "image": "",
+                    "tileImage": "",
                     "videoMute": false,
                     "hidden": false,
-                    "tabTitleOverride": "Nebula",
+                    "tabTitleOverride": "",
                     "_type": "CommonUI Simple Message MOTD",
-                    "title": "Welcome",
-                    "body": "Need help? join the Nebula Services Discord Server!",
+                    "title": "",
+                    "body": "",
                     "offerAction": "ShowOfferDetails",
                     "videoLoop": false,
                     "videoStreamingEnabled": false,
                     "sortingPriority": 1,
-                    "websiteButtonText": "Discord",
-                    "websiteURL": "https://discord.gg/BMQ4x3xzK3",
+                    "websiteButtonText": "",
+                    "websiteURL": "",
                     "id": "61fb3dd8-f23d-45cc-9058-058ab223ba5cs",
                     "videoAutoplay": false,
                     "videoFullscreen": false,
