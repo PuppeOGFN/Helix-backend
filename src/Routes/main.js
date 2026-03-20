@@ -133,6 +133,9 @@ app.post("/fortnite/api/game/v2/events/v2/setSubgroup/*", (req, res) => {
 app.get("/fortnite/api/game/v2/enabled_features", (req, res) => {
   res.json([]);
 });
+app.get("/api/v1/events/Fortnite/download/*", (req, res) => {
+  res.json({});
+});
 app.post(
   "/api/v1/assets/Fortnite/*/*",
   async (req, res) => {
@@ -174,15 +177,6 @@ app.get("/fortnite/api/game/v2/leaderboards/cohort/*", (req, res) => {
 app.post("/datarouter/api/v1/public/data", (req, res) => {
   res.status(204);
   res.end();
-});
-app.get("/content-controls/:accountId", (req, res) => {
-  res.json({
-    grants: [],
-    ageGroup: "UNKNOWN",
-    isMinor: false,
-    canPurchase: true,
-    accountId: req.params.accountId,
-  });
 });
 app.post("/api/v1/user/setting", async (req, res) => {
   res.json([]);

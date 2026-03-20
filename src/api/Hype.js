@@ -31,7 +31,7 @@ app.get(
     const apiKey = req.headers["x-api-key"];
 
     try {
-      if (apiKey !== process.env.API_KEY) {
+      if (apiKey !== API_KEY) {
         log.warn(`Invalid API key attempt from IP: ${req.ip}`);
         return res.status(401).json({ error: "Invalid API key" });
       }
@@ -39,9 +39,10 @@ app.get(
         ![
           "Elimination",
           "Win",
-          "Top3",
-          "Top7",
-          "Top12",
+          "Top 3",
+          "Top 7",
+          "Top 12",
+          "Bus Fare",
         ].includes(reason)
       ) {
         log.warn(`Invalid reason attempt from IP: ${req.ip}: ${reason}`);
@@ -57,7 +58,15 @@ app.get(
         return res.status(404).json({ error: `User not found: ${username}` });
       }
 
+      const profile = await Profile.findOne({ accountId: user.accountId }).lean();
+      if (!profile) {
+        return res.status(404).json({ error: `Profile not found for user: ${username}` });
+      }
+
+      const attributes = { ...profile.profiles.athena.stats.attributes };
+      const currentHype = attributes.arena_hype || 0;
       let amount = 0;
+      let removeAmount = 0;
 
       switch (reason) {
         case "Elimination":
@@ -66,45 +75,43 @@ app.get(
         case "Win":
           amount = 60;
           break;
-        case "Top3":
+        case "Top 3":
           amount = 2;
           break;
-        case "Top7":
+        case "Top 7":
           amount = 4;
           break;
-        case "Top12":
+        case "Top 12":
           amount = 6;
+          break;
+        case "Bus Fare":
+          if (currentHype >= 14000) removeAmount = 10;
+          else if (currentHype >= 500) removeAmount = 8;
+          else if (currentHype >= 445) removeAmount = 8;
+          else if (currentHype >= 300) removeAmount = 8;
+          else if (currentHype >= 225) removeAmount = 5;
+          else if (currentHype >= 175) removeAmount = 3;
+          else if (currentHype >= 125) removeAmount = 1;
           break;
       }
 
-      const updatedProfile = await Profile.findOneAndUpdate(
+      const newHype = Math.max(0, currentHype + amount - removeAmount);
+      attributes.arena_hype = newHype;
+
+      await Profile.updateOne(
         { accountId: user.accountId },
-        {
-          $inc: {
-            "profiles.athena.stats.attributes.arena_hype": amount,
-            "profiles.athena.rvn": 1,
-            "profiles.athena.commandRevision": 1,
-          },
-          $set: {
-            "profiles.athena.updated": new Date().toISOString(),
-          },
-        },
-        { new: true }
-      ).lean();
-
-      if (!updatedProfile) {
-        return res.status(404).json({ error: `Profile not found for user: ${username}` });
-      }
-
-      const newHype = Number(
-        updatedProfile.profiles?.athena?.stats?.attributes?.arena_hype || 0
+        { $set: { "profiles.athena.stats.attributes": attributes } }
       );
-      const message = `Successfully added ${amount} Hype`;
+
+      const message =
+        removeAmount === 0
+          ? `Successfully added ${amount} Hype`
+          : `Successfully ${amount > 0 ? "added" : "removed"} Hype`;
 
       log.hype(`${message} for ${username}, new Hype: ${newHype}`);
       res.json({
         message,
-        hype: newHype,
+        hype: attributes.arena_hype,
       });
     } catch (error) {
       log.error(`ManageHype error for ${username}: ${error.message}`);
