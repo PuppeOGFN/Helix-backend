@@ -302,42 +302,7 @@
         "lastModified": "2019-10-29T12:44:06.577Z",
         "_locale": "en-US"
     },
-    "battleroyalenews": {
-        "news": {
-            "_type": "Battle Royale News",
-            "motds": [
-                {
-                    "entryType": "Website",
-                    "image": "",
-                    "tileImage": "",
-                    "videoMute": false,
-                    "hidden": false,
-                    "tabTitleOverride": "",
-                    "_type": "CommonUI Simple Message MOTD",
-                    "title": "",
-                    "body": "",
-                    "offerAction": "ShowOfferDetails",
-                    "videoLoop": false,
-                    "videoStreamingEnabled": false,
-                    "sortingPriority": 1,
-                    "websiteButtonText": "",
-                    "websiteURL": "",
-                    "id": "61fb3dd8-f23d-45cc-9058-058ab223ba5cs",
-                    "videoAutoplay": false,
-                    "videoFullscreen": false,
-                    "spotlight": false
-                }
-            ]
-        },
-        "_title": "battleroyalenews",
-        "header": "",
-        "style": "SpecialEvent",
-        "_noIndex": false,
-        "alwaysShow": false,
-        "_activeDate": "2018-08-17T16:00:00.000Z",
-        "lastModified": "2019-10-31T20:29:39.334Z",
-        "_locale": "en-US"
-    },
+    
     "dynamicbackgrounds": {
         "backgrounds": {
             "backgrounds": [
