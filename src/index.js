@@ -9,7 +9,6 @@ import kv from "./Utils/kv.js";
 import Utils from "./Utils/Utils.js";
 import log from "./Utils/log.js";
 import { DateAddHours } from "./Routes/auth.js";
-import "./matchmaker/src/matchmaker.js";
 import "./discord/index.js";
 import { v4 } from "uuid";
 

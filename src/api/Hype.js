@@ -7,9 +7,22 @@ import log from "../Utils/log.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = 90;
+const PORT = Number(process.env.HYPE_PORT || 90);
 const app = express();
 app.use(express.json());
+
+const connectToMongoDB = async () => {
+  try {
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  } catch (error) {
+    log.error(`MongoDB connection error: ${error.message}`);
+    process.exit(1);
+  }
+};
 
 app.get(
   "/api/v1/rewards/managehype/:username/:reason",

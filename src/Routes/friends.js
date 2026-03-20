@@ -21,6 +21,19 @@ app.get("/friends/api/public/list/fortnite/*/recentPlayers", (req, res) => {
   res.json([]);
 });
 
+app.get("/friends/api/v1/:accountId/recent/fortnite", (req, res) => {
+  Log.request(`GET /friends/api/v1/${req.params.accountId}/recent/fortnite - ${req.user?.accountId || "unauthenticated"}`);
+  res.json([]);
+});
+
+app.get("/presence/api/v1/_/:accountId/last-online", (req, res) => {
+  Log.request(`GET /presence/api/v1/_/${req.params.accountId}/last-online - ${req.user?.accountId || "unauthenticated"}`);
+  res.json({
+    accountId: req.params.accountId,
+    last_online: new Date().toISOString(),
+  });
+});
+
 app.get("/friends/api/public/friends/:accountId", verifyToken, async (req, res) => {
   Log.request(`GET /friends/api/public/friends/${req.params.accountId} - ${req.user.accountId}`);
   let response = [];

@@ -1,13 +1,33 @@
 import express from "express";
-const app = express.Router();
-import Utils from "../Utils/Utils.js";
+import { v4 as uuidv4 } from "uuid";
 import { verifyToken } from "../User/tokenManager/tokenVerify.js";
-import qs from "qs";
 
-import dotenv from "dotenv";
-dotenv.config();
-
+const app = express.Router();
 let buildUniqueId = {};
+
+function makeId() {
+  return uuidv4().replace(/-/gi, "").toUpperCase();
+}
+
+function getMatchmakerIp() {
+  const raw = (process.env.MATCHMAKER_IP || "127.0.0.1:81").trim();
+  if (raw.startsWith("ws://") || raw.startsWith("wss://")) return raw;
+  return `ws://${raw}`;
+}
+
+function getGameServerInfo() {
+  const firstServer = (process.env.GAMESERVER_IP || "127.0.0.1:7777")
+    .split(",")
+    .map((entry) => entry.trim())
+    .find((entry) => entry.length > 0);
+
+  const parts = (firstServer || "127.0.0.1:7777").split(":");
+  const serverAddress = parts[0] || "127.0.0.1";
+  const parsedPort = Number(parts[1]);
+  const serverPort = Number.isFinite(parsedPort) && parsedPort > 0 ? parsedPort : 7777;
+
+  return { serverAddress, serverPort };
+}
 
 app.get("/fortnite/api/matchmaking/session/findPlayer/*", (req, res) => {
   res.status(200).end();
@@ -16,88 +36,17 @@ app.get("/fortnite/api/matchmaking/session/findPlayer/*", (req, res) => {
 app.get(
   "/fortnite/api/game/v2/matchmakingservice/ticket/player/*",
   verifyToken,
-  async (req, res) => {
-    const playerCustomKey = qs.parse(req.url.split("?")[1], {
-      ignoreQueryPrefix: true,
-    })["player.option.customKey"];
-    const bucketId = qs.parse(req.url.split("?")[1], {
-      ignoreQueryPrefix: true,
-    })["bucketId"];
-
-    if (typeof bucketId !== "string" || bucketId.split(":").length !== 4) {
-      return res.status(400).end();
-    }
-
-    const memory = Utils.GetVersion(req);
-    const region = bucketId.split(":")[2].toUpperCase();
-    const playlist = bucketId.split(":")[3];
-
-    console.log("Region:", region, "Playlist:", playlist);
-
-    const regionServers = {
-      EU: process.env.EU_IP,
-      NAE: process.env.NAE_IP,
-    };
-
-    const selectedServer = regionServers[region];
-
-    if (!selectedServer || typeof selectedServer !== "string") {
-      console.error(
-        `Invalid server for region ${region}: value=${selectedServer}, type=${typeof selectedServer}`
-      );
-      return Utils.createError(
-        "errors.com.epicgames.common.matchmaking.config_error",
-        `No server configured for region ${region}`,
-        [],
-        1014,
-        "invalid_config",
-        500,
-        res
-      );
-    }
-
-    console.log("Selected server:", selectedServer);
-
-    await global.kv.set(`playerPlaylist:${req.user.accountId}`, playlist);
-    await global.kv.set(`playerRegion:${req.user.accountId}`, region);
-
-    if (typeof playerCustomKey == "string") {
-      return Utils.createError(
-        "errors.com.epicgames.common.matchmaking.code.not_found",
-        `Custom matchmaking codes are not supported`,
-        [],
-        1013,
-        "invalid_code",
-        404,
-        res
-      );
-    }
-
-    if (
-      typeof req.query.bucketId !== "string" ||
-      req.query.bucketId.split(":").length !== 4
-    ) {
-      return res.status(400).end();
-    }
+  (req, res) => {
+    if (typeof req.query.bucketId !== "string") return res.status(400).end();
+    if (req.query.bucketId.split(":").length !== 4) return res.status(400).end();
 
     buildUniqueId[req.user.accountId] = req.query.bucketId.split(":")[0];
-    const matchmakerIP = process.env.MATCHMAKER_IP;
 
-    const serviceUrl =
-      matchmakerIP.includes("ws") || matchmakerIP.includes("wss")
-        ? `${matchmakerIP}?region=${region}`
-        : `ws://${matchmakerIP}?region=${region}`;
-
-    console.log("Sending WebSocket response:", {
-      serviceUrl,
+    res.json({
+      serviceUrl: getMatchmakerIp(),
       ticketType: "mms-player",
-      payload: `account ${region} ${playlist} ${memory.season}`,
-    });
-
-    return res.json({
-      serviceUrl,
-      ticketType: "mms-player",
-      payload: `account ${region} ${playlist} ${memory.season}`,
+      payload: "69=",
+      signature: "420=",
     });
   }
 );
@@ -116,70 +65,32 @@ app.get(
 app.get(
   "/fortnite/api/matchmaking/session/:sessionId",
   verifyToken,
-  async (req, res) => {
-    const playlist = await global.kv.get(`playerPlaylist:${req.user.accountId}`);
-    const region = await global.kv.get(`playerRegion:${req.user.accountId}`);
-
-    console.log("Region (session):", region, "Playlist (session):", playlist);
-
-    const regionServers =
-    {
-      EU: process.env.EU_IP,
-      NAE: process.env.NAE_IP,
-    };
-
-    const selectedServer = regionServers[region];
-
-    if (!selectedServer || typeof selectedServer !== "string") {
-      console.error(
-        `Invalid server for region ${region}: value=${selectedServer}, type=${typeof selectedServer}`
-      );
-      return Utils.createError(
-        "errors.com.epicgames.common.matchmaking.config_error",
-        `No server configured for region ${region}`,
-        [],
-        1014,
-        "invalid_config",
-        500,
-        res
-      );
-    }
-
-    console.log("Selected server (session):", selectedServer);
-
-    const [ip, port] = selectedServer.split(":");
-    const kvDocument = JSON.stringify({
-      ip,
-      port,
-      playlist,
-      region,
-    });
-
-    let codeKV = JSON.parse(kvDocument);
+  (req, res) => {
+    const gameServerInfo = getGameServerInfo();
 
     res.json({
       id: req.params.sessionId,
-      ownerId: "1234567890ABCDEF1234567890ABCDEF12345678",
-      ownerName: `[DS]fortnite-live${region.toLowerCase()}gcec1c2e30ubrcore0a-z8hj-1968`,
-      serverName: `[DS]fortnite-live${region.toLowerCase()}gcec1c2e30ubrcore0a-z8hj-1968`,
-      serverAddress: codeKV.ip,
-      serverPort: codeKV.port,
+      ownerId: makeId(),
+      ownerName: "[DS]fortnite-liveeugcec1c2e30ubrcore0a-z8hj-1968",
+      serverName: "[DS]fortnite-liveeugcec1c2e30ubrcore0a-z8hj-1968",
+      serverAddress: gameServerInfo.serverAddress,
+      serverPort: gameServerInfo.serverPort,
       maxPublicPlayers: 220,
       openPublicPlayers: 175,
       maxPrivatePlayers: 0,
       openPrivatePlayers: 0,
       attributes: {
-        REGION_s: region,
+        REGION_s: "EU",
         GAMEMODE_s: "FORTATHENA",
         ALLOWBROADCASTING_b: true,
-        SUBREGION_s: region === "EU" ? "GB" : "US",
-        DCID_s: `FORTNITE-LIVE${region}GCEC1C2E30UBRCORE0A-14840880`,
+        SUBREGION_s: "GB",
+        DCID_s: "FORTNITE-LIVEEUGCEC1C2E30UBRCORE0A-14840880",
         tenant_s: "Fortnite",
         MATCHMAKINGPOOL_s: "Any",
         STORMSHIELDDEFENSETYPE_i: 0,
         HOTFIXVERSION_i: 0,
-        PLAYLISTNAME_s: codeKV.playlist,
-        SESSIONKEY_s: "1234567890ABCDEF1234567890ABCDEF12345678",
+        PLAYLISTNAME_s: "Playlist_DefaultSolo",
+        SESSIONKEY_s: makeId(),
         TENANT_s: "Fortnite",
         BEACONPORT_i: 15009,
       },

@@ -52,8 +52,11 @@ wss.on("listening", () => {
 });
 wss.on("connection", async (ws, req) => {
   ws.on("error", () => {});
-  if (ws.protocol.toLowerCase() != "xmpp" || req.url === "/matchmaker")
-    return matchmaker.server(ws, req);
+  const protocol = typeof ws.protocol === "string" ? ws.protocol.toLowerCase() : "";
+  if (protocol !== "xmpp") {
+    ws.close();
+    return;
+  }
   let joinedMUCs = [];
   let accountId = "";
   let displayName = "";

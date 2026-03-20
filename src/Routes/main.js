@@ -178,6 +178,15 @@ app.post("/datarouter/api/v1/public/data", (req, res) => {
   res.status(204);
   res.end();
 });
+app.get("/content-controls/:accountId", (req, res) => {
+  res.json({
+    grants: [],
+    ageGroup: "UNKNOWN",
+    isMinor: false,
+    canPurchase: true,
+    accountId: req.params.accountId,
+  });
+});
 app.post("/api/v1/user/setting", async (req, res) => {
   res.json([]);
 })

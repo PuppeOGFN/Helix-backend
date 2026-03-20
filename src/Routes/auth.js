@@ -303,6 +303,10 @@ app.delete("/account/api/oauth/sessions/kill", async (req, res) => {
   res.status(204).json({});
 });
 
+app.delete("/account/api/oauth/sessions/kill/*", async (req, res) => {
+  res.status(204).json({});
+});
+
 app.post("/auth/v1/oauth/token", async (req, res) => {
   const body = req.body;
   res.json({
@@ -404,6 +408,59 @@ app.post("/epic/oauth/v2/token", async (req, res) => {
 app.post("/datarouter/api/v1/public/data/clients", async (req, res) => {
   res.json([]);
 });
+
+app.get("/account/api/oauth/verify", verifyToken, async (req, res) => {
+  const authHeader = req.headers["authorization"] || "";
+  const token = authHeader.replace(/^bearer\s+/i, "");
+  const decoded = jwt.decode(token.replace("eg1~", "")) || {};
+
+  const expiresAt = DateAddHours(
+    new Date(decoded.creation_date || Date.now()),
+    decoded.hours_expire || 8
+  ).toISOString();
+
+  res.json({
+    access_token: token,
+    expires_in: Math.max(
+      0,
+      Math.floor((new Date(expiresAt).getTime() - Date.now()) / 1000)
+    ),
+    expires_at: expiresAt,
+    token_type: "bearer",
+    account_id: req.user.accountId,
+    client_id: decoded.clid || "fortnitePCGameClient",
+    internal_client: true,
+    client_service: "fortnite",
+    display_name: req.user.username,
+    app: "fortnite",
+    in_app_id: req.user.accountId,
+    device_id: decoded.did || decoded.device_id || "",
+  });
+});
+
+app.post(
+  "/fortnite/api/game/v2/profileToken/verify/:accountId",
+  verifyToken,
+  async (req, res) => {
+    if (req.params.accountId !== req.user.accountId) {
+      return Utils.createError(
+        "errors.com.epicgames.common.authentication.authentication_failed",
+        "Account mismatch while verifying profile token.",
+        [req.params.accountId],
+        1032,
+        "authentication_failed",
+        403,
+        res
+      );
+    }
+
+    res.json({
+      accountId: req.user.accountId,
+      profileId: req.query.profileId || "athena",
+      verified: true,
+    });
+  }
+);
 
 export function DateAddHours(pdate, number) {
   let date = pdate;

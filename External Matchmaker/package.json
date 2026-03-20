@@ -1,0 +1,27 @@
+{
+  "name": "fortmatchmaker",
+  "version": "1.0.0",
+  "description": "A fortnite matchmaker.",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^8.12.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lawin0129/FortMatchmaker.git"
+  },
+  "keywords": [
+    "fortnite",
+    "matchmaker"
+  ],
+  "author": "Lawin0129",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Lawin0129/FortMatchmaker/issues"
+  },
+  "homepage": "https://github.com/Lawin0129/FortMatchmaker#readme"
+}

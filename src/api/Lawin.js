@@ -47,7 +47,7 @@ app.get('/api/v1/checkUser/:username', async (req, res) => {
   }
 });
 
-const PORT = 94;
+const PORT = Number(process.env.LAWIN_PORT || 94);
 app.listen(PORT, () => {
   log.api(`Lawin server running on port ${PORT}`);
 });

@@ -9,8 +9,6 @@ dotenv.config();
 
 const WEBHOOK_URL = process.env.LOG_WEBHOOK;
 
-const ALLOWED_CHANNEL_ID = "1443272571213709372";
-
 export const data = new SlashCommandBuilder()
   .setName("create")
   .setDescription("Creates an account for you")
@@ -79,16 +77,6 @@ async function sendWebhookLog(username, email, discordUser) {
 }
 
 export async function execute(interaction) {
-  if (interaction.channelId !== ALLOWED_CHANNEL_ID) {
-    log.backend(
-      `Unauthorized channel usage attempt by ${interaction.user.tag} in channel ${interaction.channelId}`
-    );
-    return interaction.reply({
-      content: `This command can only be used in <#!${ALLOWED_CHANNEL_ID}>!`,
-      ephemeral: true,
-    });
-  }
-
   await interaction.deferReply({ ephemeral: true });
 
   const discordId = interaction.user.id;
