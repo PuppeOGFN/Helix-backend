@@ -6,6 +6,7 @@ import log from "../Utils/log.js";
 
 import dotenv from "dotenv";
 dotenv.config();
+const API_KEY = process.env.API_KEY;
 
 const PORT = Number(process.env.HYPE_PORT || 90);
 const app = express();
