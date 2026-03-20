@@ -133,9 +133,6 @@ app.post("/fortnite/api/game/v2/events/v2/setSubgroup/*", (req, res) => {
 app.get("/fortnite/api/game/v2/enabled_features", (req, res) => {
   res.json([]);
 });
-app.get("/api/v1/events/Fortnite/download/*", (req, res) => {
-  res.json({});
-});
 app.post(
   "/api/v1/assets/Fortnite/*/*",
   async (req, res) => {

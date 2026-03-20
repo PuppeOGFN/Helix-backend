@@ -1,14 +1,13 @@
 import express from "express";
 import fs from "fs";
-import axios from "axios";
-import { MongoClient } from "mongodb";
-import mongoose from 'mongoose';
 import Utils from "../Utils/Utils.js";
 import log from "../Utils/log.js";
 import path from "path";
 import { dirname } from 'dirname-filename-esm';
 import { verifyToken } from "../User/tokenManager/tokenVerify.js";
 import { v4 } from 'uuid';
+import User from "../User/Mongodb/Schema/user.js";
+import Profile from "../User/Mongodb/Schema/profiles.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -16,61 +15,13 @@ dotenv.config();
 const __dirname = dirname(import.meta);
 const app = express.Router();
 
-const DatabaseURL = process.env.MONGO_URI;
-const NameFromURL = DatabaseURL.split("/");
-const DatabaseName = NameFromURL[3];
-const DatabaseCollectionName = 'profiles';
-
-const userSchema = new mongoose.Schema({
-    username: String,
-    accountId: String,
-    tournamentDetails: 
-    {
-        kills: { type: Number, default: 0 },
-        placement: { type: Number, default: 0 },
-        points: { type: Number, default: 0 },
-        wins: { type: Number, default: 0 },
-        matchesPlayed: { type: Number, default: 0 },
-        matches: { type: Array, default: [] },
-        played: { type: Boolean, default: false }
-    }
-});
-
-const profileSchema = new mongoose.Schema({
-    accountId: String,
-    profiles: {
-        athena: {
-            stats: {
-                attributes: {
-                    arena_hype: { type: Number, default: 0 }
-                }
-            }
-        }
-    }
-});
-
-const User = mongoose.model('users', userSchema);
-const Profile = mongoose.model('profiles', profileSchema);
-
 async function GetPlayerHype(accountid) {
-    const client = new MongoClient(DatabaseURL, { useNewUrlParser: true, useUnifiedTopology: true });
-
     try {
-        await client.connect();
-        const db = client.db(DatabaseName);
-        const collection = db.collection(DatabaseCollectionName);
-
-        const profile = await collection.findOne({ 'accountId': accountid });
-        if (profile && profile.profiles && profile.profiles.athena && profile.profiles.athena.stats && profile.profiles.athena.stats.attributes) {
-            return profile.profiles.athena.stats.attributes.arena_hype || 0;
-        } else {
-            throw new Error('Profile not found or malformed!');
-        }
+        const profile = await Profile.findOne({ accountId: accountid }).lean();
+        return Number(profile?.profiles?.athena?.stats?.attributes?.arena_hype || 0);
     } catch (error) {
         console.error(`Error fetching player hype: ${error}`);
         return 0;
-    } finally {
-        await client.close();
     }
 }
 
@@ -80,7 +31,7 @@ app.get("/api/v1/events/Fortnite/download/:accountid", verifyToken, async (req, 
     const user = await User.findOne({ accountId: accountid });
 
     if (!user) {
-        res.send("No user found!");
+        return res.status(404).json({ error: "User not found" });
     }
 
     const username = user.username;
@@ -141,14 +92,9 @@ app.get("/api/v1/events/Fortnite/download/:accountid", verifyToken, async (req, 
         }
 
         log.arena(username + " sent an arena JSON request!");
+        res.setHeader("Cache-Control", "no-store");
         res.json(events);
     });
-    if (process.env.EVENT_TYPE === "Tournament") {
-        log.arena("Tournaments not set-up yet!");
-    }
-    else {
-        log.arena("Arena is disabled, not sending json data!");
-    }
 });
 
 app.get("/api/v1/players/Fortnite/tokens", async (req, res) => {

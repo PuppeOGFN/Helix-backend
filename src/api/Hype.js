@@ -38,6 +38,10 @@ app.get(
       if (
         ![
           "Elimination",
+          "Win",
+          "Top3",
+          "Top7",
+          "Top12",
         ].includes(reason)
       ) {
         log.warn(`Invalid reason attempt from IP: ${req.ip}: ${reason}`);
@@ -53,39 +57,54 @@ app.get(
         return res.status(404).json({ error: `User not found: ${username}` });
       }
 
-      const profile = await Profile.findOne({ accountId: user.accountId }).lean();
-      if (!profile) {
-        return res.status(404).json({ error: `Profile not found for user: ${username}` });
-      }
-
-      const attributes = { ...profile.profiles.athena.stats.attributes };
-      const currentHype = attributes.arena_hype || 0;
       let amount = 0;
-      let removeAmount = 0;
 
       switch (reason) {
         case "Elimination":
           amount = 20;
           break;
+        case "Win":
+          amount = 60;
+          break;
+        case "Top3":
+          amount = 2;
+          break;
+        case "Top7":
+          amount = 4;
+          break;
+        case "Top12":
+          amount = 6;
+          break;
       }
 
-      const newHype = Math.max(0, currentHype + amount - removeAmount);
-      attributes.arena_hype = newHype;
-
-      await Profile.updateOne(
+      const updatedProfile = await Profile.findOneAndUpdate(
         { accountId: user.accountId },
-        { $set: { "profiles.athena.stats.attributes": attributes } }
-      );
+        {
+          $inc: {
+            "profiles.athena.stats.attributes.arena_hype": amount,
+            "profiles.athena.rvn": 1,
+            "profiles.athena.commandRevision": 1,
+          },
+          $set: {
+            "profiles.athena.updated": new Date().toISOString(),
+          },
+        },
+        { new: true }
+      ).lean();
 
-      const message =
-        removeAmount === 0
-          ? `Successfully added ${amount} Hype`
-          : `Successfully ${amount > 0 ? "added" : "removed"} Hype`;
+      if (!updatedProfile) {
+        return res.status(404).json({ error: `Profile not found for user: ${username}` });
+      }
+
+      const newHype = Number(
+        updatedProfile.profiles?.athena?.stats?.attributes?.arena_hype || 0
+      );
+      const message = `Successfully added ${amount} Hype`;
 
       log.hype(`${message} for ${username}, new Hype: ${newHype}`);
       res.json({
         message,
-        hype: attributes.arena_hype,
+        hype: newHype,
       });
     } catch (error) {
       log.error(`ManageHype error for ${username}: ${error.message}`);
