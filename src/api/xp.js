@@ -262,7 +262,12 @@ app.get("/api/v1/xp/:username/:amount", async (req, res) => {
         "profiles.athena.rvn": profile.profiles.athena.rvn,
       },
       {
-        $set: { "profiles.athena.stats.attributes": attributes },
+        $set: {
+          "profiles.athena.stats.attributes.xp": currentXp,
+          "profiles.athena.stats.attributes.level": currentLevel,
+          "profiles.athena.stats.attributes.book_xp": attributes.book_xp,
+          "profiles.athena.stats.attributes.book_level": attributes.book_level,
+        },
         $inc: { "profiles.athena.rvn": 1 },
       },
       { new: true }

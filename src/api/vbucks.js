@@ -58,35 +58,29 @@ app.get(
         return res.status(404).json({ error: `User not found: ${username}` });
       }
 
-      const profile = await Profile.findOne({ accountId: user.accountId }).lean();
-      if (!profile) {
-        return res.status(404).json({ error: `Profile not found for user: ${username}` });
-      }
-
-      const attributes = { ...profile.profiles.athena.stats.attributes };
-      const currency = {
-        ...profile.profiles.common_core.items["Currency:MtxPurchased"],
+      const incOps = {
+        "profiles.common_core.items.Currency:MtxPurchased.quantity": vbucksAmount,
       };
 
       if (vbucksAmount === 50) {
-        attributes.lifetime_kills = (attributes.lifetime_kills || 0) + 1;
+        incOps["profiles.athena.stats.attributes.lifetime_kills"] = 1;
         log.kill(`${username} got a kill!`);
       } else if (vbucksAmount === 200) {
-        attributes.lifetime_wins = (attributes.lifetime_wins || 0) + 1;
+        incOps["profiles.athena.stats.attributes.lifetime_wins"] = 1;
         log.win(`${username} got a win!`);
+      } else if (vbucksAmount === 25) {
+        incOps["profiles.athena.stats.attributes.lifetime_top3"] = 1;
+        log.top3(`${username} got a top 3!`);
       }
 
-      currency.quantity = (currency.quantity || 0) + vbucksAmount;
-
-      await Profile.updateOne(
+      const updateResult = await Profile.updateOne(
         { accountId: user.accountId },
-        {
-          $set: {
-            "profiles.athena.stats.attributes": attributes,
-            "profiles.common_core.items.Currency:MtxPurchased": currency,
-          },
-        }
+        { $inc: incOps }
       );
+
+      if (!updateResult.matchedCount) {
+        return res.status(404).json({ error: `Profile not found for user: ${username}` });
+      }
 
       log.vbucks(`Added ${vbucksAmount} vbucks to ${username}`);
       Utils.SendEmptyGift(username, user.accountId);

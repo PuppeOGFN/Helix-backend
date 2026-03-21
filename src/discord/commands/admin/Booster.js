@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from 'discord.js';
+import { SlashCommandBuilder, PermissionFlagsBits } from 'discord.js';
 import Profile from '../../../User/Mongodb/Schema/profiles.js';
 import User from '../../../User/Mongodb/Schema/user.js';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,7 +8,6 @@ import log from "../../../Utils/log.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const REQUIRED_ROLE_ID = '1428924719490400358';
 const WEBHOOK_URL = process.env.LOG_WEBHOOK;
 
 async function sendWebhookLog(discordUser, action, status, details = {}) {
@@ -62,32 +61,35 @@ async function sendWebhookLog(discordUser, action, status, details = {}) {
 }
 
 export const data = new SlashCommandBuilder()
-  .setName('claim-booster-rewards')
-  .setDescription('Claim The Booster Rewards')
+  .setName('givebooster')
+  .setDescription('Give Booster Rewards to a user (Admin only)')
+  .addUserOption((option) =>
+    option
+      .setName('user')
+      .setDescription('The user to give Booster Rewards to')
+      .setRequired(true)
+  )
+  .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setDMPermission(false);
 
 export const execute = async (interaction) => {
   await interaction.deferReply({ ephemeral: true });
 
-  if (!interaction.member.roles.cache.has(REQUIRED_ROLE_ID)) {
-    await sendWebhookLog(interaction.user, 'Claim Attempt', 'Failed', { Reason: 'Missing required role' });
-    return interaction.editReply({ content: 'You do not have the required role to use this command.' });
-  }
-
-  const discordId = interaction.user.id;
+  const targetUser = interaction.options.getUser('user');
+  const discordId = targetUser.id;
 
   try {
     const user = await User.findOne({ discordId });
     if (!user) {
-      await sendWebhookLog(interaction.user, 'Claim Attempt', 'Failed', { Reason: 'User profile not found' });
-      return interaction.editReply({ content: 'Your user profile is not found in the database.' });
+      await sendWebhookLog(interaction.user, 'Claim Attempt', 'Failed', { Reason: 'User profile not found', TargetUser: targetUser.username });
+      return interaction.editReply({ content: `That user's profile was not found in the database.` });
     }
 
     const accountId = user.accountId;
     const profile = await Profile.findOne({ accountId });
     if (!profile) {
-      await sendWebhookLog(interaction.user, 'Claim Attempt', 'Failed', { Reason: 'Profile data not found' });
-      return interaction.editReply({ content: 'Your profile data is not found.' });
+      await sendWebhookLog(interaction.user, 'Claim Attempt', 'Failed', { Reason: 'Profile data not found', TargetUser: targetUser.username });
+      return interaction.editReply({ content: `That user's profile data was not found.` });
     }
 
     const commonCore = profile.profiles.common_core;
@@ -184,9 +186,9 @@ export const execute = async (interaction) => {
       { $set: { 'profiles.common_core': commonCore } }
     );
 
-    await sendWebhookLog(interaction.user, 'Claim Booster Rewards', 'Success', { CosmeticsClaimed: cosmeticIds.length.toString() });
+    await sendWebhookLog(interaction.user, 'Give Booster Rewards', 'Success', { CosmeticsClaimed: cosmeticIds.length.toString(), GivenTo: targetUser.username });
     await interaction.editReply({
-      content: `You have successfully claimed the Booster Rewards!`
+      content: `Successfully gave Booster Rewards to **${targetUser.username}**!`
     });
 
   } catch (error) {

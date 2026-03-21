@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { dirname } from "dirname-filename-esm";
-import { SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder, PermissionFlagsBits } from "discord.js";
 import Users from "../../../User/Mongodb/Schema/user.js";
 import Profiles from "../../../User/Mongodb/Schema/profiles.js";
 import { v4 as uuidv4 } from "uuid";
@@ -10,7 +10,6 @@ import log from "../../../Utils/log.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const REQUIRED_ROLE_ID = "1438036202564358226";
 const WEBHOOK_URL = process.env.LOG_WEBHOOK;
 
 async function sendWebhookLog(discordUser, action, status, details = {}) {
@@ -52,30 +51,29 @@ async function sendWebhookLog(discordUser, action, status, details = {}) {
 }
 
 export const data = new SlashCommandBuilder()
-  .setName("claim-full-locker")
-  .setDescription("Claim the full cosmetic locker (backpacks + wraps)")
+  .setName("givefulllocker")
+  .setDescription("Give the full cosmetic locker to a user (Admin only)")
+  .addUserOption((option) =>
+    option
+      .setName("user")
+      .setDescription("The user to give the full locker to")
+      .setRequired(true)
+  )
+  .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setDMPermission(false);
 
 export async function execute(interaction) {
   await interaction.deferReply({ ephemeral: true });
 
-  if (!interaction.member.roles.cache.has(REQUIRED_ROLE_ID)) {
-    await sendWebhookLog(interaction.user, "Claim Attempt", "Failed", {
-      Reason: "Missing required role",
-    });
-    return interaction.editReply({
-      content: "You do not have the required role to use this command.",
-    });
-  }
-
-  const userId = interaction.user.id;
-  const user = await Users.findOne({ discordId: userId });
+  const targetUser = interaction.options.getUser("user");
+  const user = await Users.findOne({ discordId: targetUser.id });
   if (!user) {
     await sendWebhookLog(interaction.user, "Claim Attempt", "Failed", {
       Reason: "No linked account",
+      TargetUser: targetUser.username,
     });
     return interaction.editReply({
-      content: "No linked account Found.",
+      content: "That user has no linked account.",
       ephemeral: true,
     });
   }
@@ -84,9 +82,10 @@ export async function execute(interaction) {
   if (!profile) {
     await sendWebhookLog(interaction.user, "Claim Attempt", "Failed", {
       Reason: "No profile found",
+      TargetUser: targetUser.username,
     });
     return interaction.editReply({
-      content: "You do not have a profile.",
+      content: "That user does not have a profile.",
       ephemeral: true,
     });
   }
@@ -154,13 +153,14 @@ export async function execute(interaction) {
     { $set: { "profiles.common_core": common } }
   );
 
-  await sendWebhookLog(interaction.user, "Claim Full Locker", "Success", {
+  await sendWebhookLog(interaction.user, "Give Full Locker", "Success", {
     ItemsAdded: itemKeys.length.toString(),
     TotalItemsNow: Object.keys(mergedItems).length.toString(),
+    GivenTo: targetUser.username,
   });
 
   await interaction.editReply({
-    content: `You Have Successfully Claimed Full Locker!`,
+    content: `Successfully gave Full Locker to **${targetUser.username}**!`,
     ephemeral: true,
   });
 }

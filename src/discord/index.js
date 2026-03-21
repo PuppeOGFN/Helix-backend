@@ -76,14 +76,7 @@ let previousAmount = null;
 
 async function updateStatus(amount) {
   try {
-    let statusMessage = "";
-    if (amount < 6) {
-      statusMessage = "Nebula Services";
-    } else if (amount === 1) {
-      statusMessage = "1 player";
-    } else {
-      statusMessage = `${amount} players`;
-    }
+    const statusMessage = amount === 1 ? "1 player" : `${amount} players`;
 
     if (amount !== previousAmount) {
       client.user.setPresence({

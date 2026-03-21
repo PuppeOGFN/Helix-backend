@@ -40,10 +40,10 @@ app.get(
         ![
           "Elimination",
           "Win",
-          "Top 3",
-          "Top 7",
-          "Top 12",
-          "Bus Fare",
+          "Top3",
+          "Top7",
+          "Top12",
+          "BusFare",
         ].includes(reason)
       ) {
         log.warn(`Invalid reason attempt from IP: ${req.ip}: ${reason}`);
@@ -59,15 +59,7 @@ app.get(
         return res.status(404).json({ error: `User not found: ${username}` });
       }
 
-      const profile = await Profile.findOne({ accountId: user.accountId }).lean();
-      if (!profile) {
-        return res.status(404).json({ error: `Profile not found for user: ${username}` });
-      }
-
-      const attributes = { ...profile.profiles.athena.stats.attributes };
-      const currentHype = attributes.arena_hype || 0;
       let amount = 0;
-      let removeAmount = 0;
 
       switch (reason) {
         case "Elimination":
@@ -76,43 +68,33 @@ app.get(
         case "Win":
           amount = 60;
           break;
-        case "Top 3":
+        case "Top3":
           amount = 2;
           break;
-        case "Top 7":
+        case "Top7":
           amount = 4;
           break;
-        case "Top 12":
+        case "Top12":
           amount = 6;
-          break;
-        case "Bus Fare":
-          if (currentHype >= 14000) removeAmount = 10;
-          else if (currentHype >= 500) removeAmount = 8;
-          else if (currentHype >= 445) removeAmount = 8;
-          else if (currentHype >= 300) removeAmount = 8;
-          else if (currentHype >= 225) removeAmount = 5;
-          else if (currentHype >= 175) removeAmount = 3;
-          else if (currentHype >= 125) removeAmount = 1;
           break;
       }
 
-      const newHype = Math.max(0, currentHype + amount - removeAmount);
-      attributes.arena_hype = newHype;
-
-      await Profile.updateOne(
+      const updatedProfile = await Profile.findOneAndUpdate(
         { accountId: user.accountId },
-        { $set: { "profiles.athena.stats.attributes": attributes } }
+        { $inc: { "profiles.athena.stats.attributes.arena_hype": amount } },
+        { new: true }
       );
 
-      const message =
-        removeAmount === 0
-          ? `Successfully added ${amount} Hype`
-          : `Successfully ${amount > 0 ? "added" : "removed"} Hype`;
+      if (!updatedProfile) {
+        return res.status(404).json({ error: `Profile not found for user: ${username}` });
+      }
 
-      log.hype(`${message} for ${username}, new Hype: ${newHype}`);
+      const newHype = updatedProfile.profiles.athena.stats.attributes.arena_hype;
+
+      log.hype(`Successfully added ${amount} Hype for ${username}, new Hype: ${newHype}`);
       res.json({
-        message,
-        hype: attributes.arena_hype,
+        message: `Successfully added ${amount} Hype`,
+        hype: newHype,
       });
     } catch (error) {
       log.error(`ManageHype error for ${username}: ${error.message}`);

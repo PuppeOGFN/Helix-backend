@@ -16,8 +16,28 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const __dirname = dirname(import.meta);
+
+const resolveJwtSecret = () => {
+  if (process.env.JWT_SECRET && process.env.JWT_SECRET.trim()) {
+    return process.env.JWT_SECRET.trim();
+  }
+
+  const jwtSecretPath = path.join(__dirname, "../jwt.secret");
+
+  if (fs.existsSync(jwtSecretPath)) {
+    const existing = fs.readFileSync(jwtSecretPath, "utf8").trim();
+    if (existing) {
+      return existing;
+    }
+  }
+
+  const generated = v4().replace(/-/gi, "") + v4().replace(/-/gi, "");
+  fs.writeFileSync(jwtSecretPath, generated, "utf8");
+  return generated;
+};
+
 global.kv = kv;
-global.JWT_SECRET = v4();
+global.JWT_SECRET = resolveJwtSecret();
 global.accessTokens = [];
 global.refreshTokens = [];
 global.clientTokens = [];
@@ -32,9 +52,16 @@ tokens = destr(
 );
 for (let tokenType in tokens) {
   for (let tokenIndex in tokens[tokenType]) {
-    let decodedToken = jwt.decode(
-      tokens[tokenType][tokenIndex].token.replace("eg1~", "")
-    );
+    const rawToken = tokens[tokenType][tokenIndex].token.replace("eg1~", "");
+    let decodedToken;
+
+    try {
+      decodedToken = jwt.verify(rawToken, global.JWT_SECRET);
+    } catch {
+      tokens[tokenType].splice(Number(tokenIndex), 1);
+      continue;
+    }
+
     if (
       DateAddHours(
         new Date(decodedToken.creation_date),

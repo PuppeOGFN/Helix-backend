@@ -5,20 +5,13 @@ import Friends from "../User/Mongodb/Schema/friends.js";
 import Utils from "../Utils/Utils.js";
 import { verifyToken } from "../User/tokenManager/tokenVerify.js";
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const keychain = JSON.parse(
   fs.readFileSync("./src/local/KeyChain/keychain.json", "utf8")
 );
 
 function readCatalogConfig() {
-  const catalogPath = path.join(__dirname, "../local/Storefront/catalog_config.json");
-  return JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+  return Utils.getStoreCatalog();
 }
 
 app.get("/fortnite/api/storefront/v2/catalog", (req, res) => {
@@ -114,20 +107,7 @@ app.get("/fortnite/api/storefront/v2/keychain", (req, res) => {
   res.json(keychain);
 });
 app.get("/catalog/api/shared/bulk/offers", (req, res) => {
-  try {
-    const catalog = readCatalogConfig();
-    const offers = (catalog.storefronts || []).flatMap((storefront) =>
-      (storefront.catalogEntries || []).map((entry) => ({
-        storefront: storefront.name,
-        ...entry,
-      }))
-    );
-
-    res.json({ offers });
-  } catch (err) {
-    console.log("Failed to load catalog_config.json:", err);
-    res.status(500).json({ error: "Internal server error" });
-  }
+  res.json({});
 });
 export default app;
 //# sourceMappingURL=storefront.js.map

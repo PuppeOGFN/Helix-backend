@@ -11,6 +11,7 @@ import { v4 } from "uuid";
 import jwt from "jsonwebtoken";
 import fs from "fs";
 import path from "path";
+import { createHash } from "crypto";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
@@ -259,7 +260,27 @@ export default class Utils {
     const memory = { season: 0, build: 0.0, CL: "0", lobby: "LobbySeason0" };
     const ua = (req.headers["user-agent"] || "").trim();
 
-    log.request(`Version detection - User-Agent: ${ua}`);
+    if (!global.versionDetectionLogCache) {
+      global.versionDetectionLogCache = new Set();
+    }
+
+    const shouldLogVersion = (signature) => {
+      if (global.versionDetectionLogCache.has(signature)) {
+        return false;
+      }
+
+      // Keep cache bounded so long-running servers do not grow memory unbounded.
+      if (global.versionDetectionLogCache.size > 200) {
+        global.versionDetectionLogCache.clear();
+      }
+
+      global.versionDetectionLogCache.add(signature);
+      return true;
+    };
+
+    if (shouldLogVersion(`ua:${ua || "missing"}`)) {
+      log.request(`Version detection - User-Agent: ${ua}`);
+    }
 
     if (!ua || !ua.includes("Fortnite")) {
       log.warn("Invalid or missing User-Agent, using defaults");
@@ -279,9 +300,11 @@ export default class Utils {
       memory.CL = cl;
       memory.lobby = `LobbySeason${major}`;
 
-      log.info(
-        `Detected version: Season ${major} | Build ${major}.${minor} | CL ${cl}`
-      );
+      if (shouldLogVersion(`detected:${major}.${minor}:${cl}`)) {
+        log.info(
+          `Detected version: Season ${major} | Build ${major}.${minor} | CL ${cl}`
+        );
+      }
       return memory;
     }
 
@@ -301,9 +324,11 @@ export default class Utils {
         memory.CL = cl;
         memory.lobby =
           season <= 1 ? `LobbySeason${season}` : "LobbyWinterDecor";
-        log.info(
-          `Legacy detected: Season ${season} | Build ${memory.build} | CL ${cl}`
-        );
+        if (shouldLogVersion(`legacy:${season}:${memory.build}:${cl}`)) {
+          log.info(
+            `Legacy detected: Season ${season} | Build ${memory.build} | CL ${cl}`
+          );
+        }
         return memory;
       }
     } catch {}
@@ -326,11 +351,15 @@ export default class Utils {
           lobby: "LobbyWinterDecor",
         });
       }
-      log.info(`Fallback version from CL: Season ${memory.season} | CL ${cl}`);
+      if (shouldLogVersion(`fallback-cl:${memory.season}:${cl}`)) {
+        log.info(`Fallback version from CL: Season ${memory.season} | CL ${cl}`);
+      }
       return memory;
     }
 
-    log.info(`Fallback version: Season 0 | CL 0 (no valid data)`);
+    if (shouldLogVersion("fallback:0:0")) {
+      log.info(`Fallback version: Season 0 | CL 0 (no valid data)`);
+    }
     return memory;
   }
 
@@ -412,14 +441,9 @@ export default class Utils {
   }
 
   static getOfferID(offerId) {
-    const catalog = JSON.parse(
-      fs.readFileSync(
-        path.join(__dirname, "../local/Storefront/catalog_config.json"),
-        "utf8"
-      )
-    );
+    const catalog = Utils.getStoreCatalog();
 
-    for (const storefront of catalog.storefronts) {
+    for (const storefront of catalog.storefronts || []) {
       const entry = storefront.catalogEntries.find(
         (i) => i.offerId === offerId
       );
@@ -429,7 +453,256 @@ export default class Utils {
       }
     }
 
-    return catalog;
+    return null;
+  }
+
+  static buildOfferId(seed) {
+    const hash = createHash("md5").update(seed).digest("hex");
+    return `${hash.slice(0, 8)}-${hash.slice(8, 12)}-${hash.slice(
+      12,
+      16
+    )}-${hash.slice(16, 20)}-${hash.slice(20, 32)}`;
+  }
+
+  static createCatalogEntry(
+    slotName,
+    slotConfig,
+    panelLabel,
+    sectionId = "Daily",
+    catalogGroup = slotName
+  ) {
+    const grants = Array.isArray(slotConfig?.itemGrants)
+      ? slotConfig.itemGrants
+      : [];
+
+    const itemGrants = grants
+      .map((grant) => {
+        if (typeof grant === "string") {
+          const templateId = grant.trim();
+          if (!templateId) return null;
+          return { templateId, quantity: 1 };
+        }
+
+        if (
+          grant &&
+          typeof grant === "object" &&
+          typeof grant.templateId === "string"
+        ) {
+          const templateId = grant.templateId.trim();
+          if (!templateId) return null;
+          const quantity = Number(grant.quantity);
+          return {
+            templateId,
+            quantity: Number.isFinite(quantity) && quantity > 0 ? quantity : 1,
+          };
+        }
+
+        return null;
+      })
+      .filter(Boolean);
+
+    if (itemGrants.length === 0) {
+      return null;
+    }
+
+    const parsedPrice = Number(slotConfig?.price);
+    const finalPrice =
+      Number.isFinite(parsedPrice) && parsedPrice > 0 ? parsedPrice : 0;
+    const seed = `${slotName}:${itemGrants
+      .map((grant) => grant.templateId)
+      .join("|")}:${finalPrice}`;
+
+    return {
+      offerId: Utils.buildOfferId(seed),
+      devName: `${slotName} - ${
+        itemGrants.map((grant) => grant.templateId).join(", ") || "NoItem"
+      }`,
+      fulfillmentIds: [],
+      dailyLimit: -1,
+      weeklyLimit: -1,
+      monthlyLimit: -1,
+      categories: [panelLabel],
+      prices: [
+        {
+          currencyType: "MtxCurrency",
+          currencySubType: "",
+          regularPrice: finalPrice,
+          finalPrice: finalPrice,
+          saleExpiration: "9999-12-31T23:59:59.999Z",
+          basePrice: finalPrice,
+        },
+      ],
+      title: "",
+      shortDescription: "",
+      description: "",
+      displayAssetPath: "",
+      meta: {},
+      matchFilter: "",
+      filterWeight: 0,
+      appStoreId: [],
+      requirements: itemGrants.map((grant) => ({
+        requirementType: "DenyOnItemOwnership",
+        requiredId: grant.templateId,
+        minQuantity: 1,
+      })),
+      offerType: "StaticPrice",
+      giftInfo: {
+        bIsEnabled: true,
+        forcedGiftBoxTemplateId: "",
+        purchaseRequirements: [],
+        giftRecordIds: [],
+      },
+      refundable: true,
+      metaInfo: [
+        { Key: "SectionId", Value: sectionId },
+        {
+          Key: "TileSize",
+          Value: sectionId === "Featured" ? "Normal" : "Small",
+        },
+      ],
+      itemGrants,
+      sortPriority: Number(panelLabel.replace("Panel ", "")) || 1,
+      catalogGroup,
+      catalogGroupPriority: 0,
+    };
+  }
+
+  static getStoreCatalog() {
+    const configPath = path.join(
+      __dirname,
+      "../local/Storefront/catalog_config.json"
+    );
+
+    try {
+      const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+
+      if (Array.isArray(config.storefronts)) {
+        return config;
+      }
+
+      const storefronts = [
+        { name: "BRDailyStorefront", catalogEntries: [] },
+        { name: "BRWeeklyStorefront", catalogEntries: [] },
+        { name: "CurrencyStoreFront", catalogEntries: [] },
+      ];
+
+      const slots = [
+        {
+          key: "daily1",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 1",
+          sectionId: "Daily",
+          catalogGroup: "daily1",
+        },
+        {
+          key: "daily2",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 2",
+          sectionId: "Daily",
+          catalogGroup: "daily2",
+        },
+        {
+          key: "daily3",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 3",
+          sectionId: "Daily",
+          catalogGroup: "daily3",
+        },
+        {
+          key: "daily4",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 4",
+          sectionId: "Daily",
+          catalogGroup: "daily4",
+        },
+        {
+          key: "daily5",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 5",
+          sectionId: "Daily",
+          catalogGroup: "daily5",
+        },
+        {
+          key: "daily6",
+          storefront: "BRDailyStorefront",
+          panel: "Panel 6",
+          sectionId: "Daily",
+          catalogGroup: "daily6",
+        },
+        {
+          key: "featured1",
+          storefront: "BRWeeklyStorefront",
+          panel: "Panel 8",
+          sectionId: "Featured",
+          catalogGroup: "featured1_bundle",
+        },
+        {
+          key: "featured2",
+          storefront: "BRWeeklyStorefront",
+          panel: "Panel 9",
+          sectionId: "Featured",
+          catalogGroup: "featured2",
+        },
+        {
+          key: "featured3",
+          storefront: "BRWeeklyStorefront",
+          panel: "Panel 10",
+          sectionId: "Featured",
+          catalogGroup: "featured3",
+        },
+      ];
+
+      for (const slot of slots) {
+        if (!config[slot.key]) continue;
+        const entry = Utils.createCatalogEntry(
+          slot.key,
+          config[slot.key],
+          slot.panel,
+          slot.sectionId,
+          slot.catalogGroup
+        );
+        if (!entry) continue;
+        storefronts
+          .find((storefront) => storefront.name === slot.storefront)
+          .catalogEntries.push(entry);
+      }
+
+      const totalEntries = storefronts.reduce(
+        (sum, storefront) => sum + storefront.catalogEntries.length,
+        0
+      );
+
+      if (totalEntries === 0) {
+        throw new Error(
+          "catalog_config.json has no valid offers. Add template IDs to itemGrants."
+        );
+      }
+
+      return {
+        refreshIntervalHrs: 24,
+        dailyPurchaseHrs: 24,
+        expiration: "9999-12-31T00:00:00.000Z",
+        storefronts,
+      };
+    } catch (error) {
+      log.error(
+        `Failed to build catalog from catalog_config.json: ${error.message}`
+      );
+      return {
+        refreshIntervalHrs: 24,
+        dailyPurchaseHrs: 24,
+        expiration: "9999-12-31T00:00:00.000Z",
+        storefronts: [
+          { name: "BRDailyStorefront", catalogEntries: [] },
+          { name: "BRWeeklyStorefront", catalogEntries: [] },
+          { name: "CurrencyStoreFront", catalogEntries: [] },
+        ],
+      };
+    }
+  }
+
+  static getCatalog() {
+    return Utils.getStoreCatalog();
   }
 
   static async UpdateTokens() {

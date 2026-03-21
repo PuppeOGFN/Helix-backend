@@ -31,6 +31,19 @@ const rest = new REST().setToken(token);
 (async () => {
   try {
     let data;
+    if (guildId) {
+      data = await rest.put(
+        Routes.applicationGuildCommands(global.clientId, guildId),
+        {
+          body: commands,
+        }
+      );
+      logger.debug(
+        `Successfully reloaded ${data.length} guild (/) commands for ${guildId}.`
+      );
+      return;
+    }
+
     data = await rest.put(Routes.applicationCommands(global.clientId), {
       body: commands,
     });

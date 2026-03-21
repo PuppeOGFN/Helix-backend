@@ -32,7 +32,8 @@ RetryConfigUrl="https://s3-us-west-1.amazonaws.com/launcher-resources/waitingroo
 NumTestsPerRegion=1
 PingTimeout=3.0
 !RegionDefinitions=ClearArray
-+RegionDefinitions=(DisplayName="${backendName} - NAE", RegionId="NAE", bEnabled=true, bVisible=true, bAutoAssignable=true)
++RegionDefinitions=(DisplayName="Auto", RegionId="AutoRegion", bEnabled=true, bVisible=true, bAutoAssignable=true)
++RegionDefinitions=(DisplayName="${backendName} - NAE", RegionId="NAE", bEnabled=true, bVisible=true, bAutoAssignable=false)
 +RegionDefinitions=(DisplayName="${backendName} - EU", RegionId="EU", bEnabled=true, bVisible=true, bAutoAssignable=false)
 !DatacenterDefinitions=ClearArray
 +DatacenterDefinitions=(Id="DE", RegionId="EU", bEnabled=true, Servers[0]=(Address="ping-eu.ds.on.epicgames.com", Port=22222))
@@ -99,7 +100,7 @@ KairosMinSupportedAppVersion=20
 bBattleRoyaleMatchmakingEnabled=true
 !FrontEndPlaylistData=ClearArray
 FrontEndPlaylistData=(PlaylistName=Playlist_DefaultSolo, PlaylistAccess=(bEnabled=true, bIsDefaultPlaylist=false, bVisibleWhenDisabled=true, bDisplayAsNew=false, CategoryIndex=0, bDisplayAsLimitedTime=false, DisplayPriority=1))
-+FrontEndPlaylistData=(PlaylistName=Playlist_DefaultDuo, PlaylistAccess=(bEnabled=false, bIsDefaultPlaylist=false, bVisibleWhenDisabled=true, bDisplayAsNew=false, CategoryIndex=0, bDisplayAsLimitedTime=false, DisplayPriority=2))
++FrontEndPlaylistData=(PlaylistName=Playlist_DefaultDuo, PlaylistAccess=(bEnabled=true, bIsDefaultPlaylist=false, bVisibleWhenDisabled=true, bDisplayAsNew=false, CategoryIndex=0, bDisplayAsLimitedTime=false, DisplayPriority=2))
 +FrontEndPlaylistData=(PlaylistName=Playlist_DefaultSquad, PlaylistAccess=(bEnabled=false, bIsDefaultPlaylist=false, bVisibleWhenDisabled=false, bDisplayAsNew=false, CategoryIndex=0, bDisplayAsLimitedTime=false, DisplayPriority=3))
 
 ; Arena
@@ -117,9 +118,6 @@ bDisablePurchasingOnRedemptionFailure=false
 
 [/Script/FortniteGame.FortPlayerControllerAthena]
 bNoInGameMatchmaking=true
-
-[/Script/GameFeatures.GameFeaturesSubsystemSettings]
-+DisabledPlugins=DiscoveryBrowser
 
 [/Script/FortniteGame.FortChatManager]
 bShouldRequestGeneralChatRooms=false

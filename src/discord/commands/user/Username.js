@@ -8,17 +8,6 @@ dotenv.config();
 
 const WEBHOOK_URL = process.env.LOG_WEBHOOK;
 
-const ALLOWED_ROLES = [
-  "1332158685333422121",
-  "1332942191907311636",
-  "1332217194213412906",
-  "1332187827731038354",
-  "1332187508447907971",
-  "1332187578358829066",
-  "1332187232638861422",
-  "1332202943193157673",
-];
-
 export const data = new SlashCommandBuilder()
   .setName("username")
   .setDescription("Lets you change your username")
@@ -82,28 +71,6 @@ async function sendWebhookLog(type, data) {
 
 export async function execute(interaction) {
   await interaction.deferReply({ ephemeral: true });
-
-  const memberRoles = interaction.member.roles.cache.map((role) => role.id);
-  const hasPermission = ALLOWED_ROLES.some((roleId) =>
-    memberRoles.includes(roleId)
-  );
-
-  if (!hasPermission) {
-    log.backend(
-      `Unauthorized username change attempt by ${interaction.user.tag} (ID: ${interaction.user.id})`
-    );
-    await sendWebhookLog("attempt", {
-      discordTag: interaction.user.tag,
-      discordId: interaction.user.id,
-      status: "Unauthorized",
-      newUsername: interaction.options.getString("username"),
-      avatarUrl: interaction.user.displayAvatarURL({ dynamic: true }),
-    });
-    return interaction.editReply({
-      content: "You don't have permission to use this command!",
-      ephemeral: true,
-    });
-  }
 
   try {
     const user = await Users.findOne({ discordId: interaction.user.id });
