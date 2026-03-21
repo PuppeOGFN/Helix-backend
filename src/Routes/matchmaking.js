@@ -1,9 +1,12 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
 import { verifyToken } from "../User/tokenManager/tokenVerify.js";
+import User from "../User/Mongodb/Schema/user.js";
 
 const app = express.Router();
 let buildUniqueId = {};
+
+if (!global.parties) global.parties = {};
 
 function makeId() {
   return uuidv4().replace(/-/gi, "").toUpperCase();
@@ -28,6 +31,59 @@ function getGameServerInfo() {
 
   return { serverAddress, serverPort };
 }
+
+async function getUsernameFromAccountId(accountId) {
+  if (!accountId) return "";
+
+  const user = await User.findOne({ accountId }).lean();
+  return user?.username || "";
+}
+
+app.get("/getTeamMember/:username", async (req, res) => {
+  const username = (req.params.username || "").trim();
+  if (!username) {
+    res.type("text/plain").send("");
+    return;
+  }
+
+  const search = username.toLowerCase();
+  const user = await User.findOne({
+    $or: [{ username }, { username_lower: search }],
+  }).lean();
+
+  if (!user?.accountId) {
+    res.type("text/plain").send("");
+    return;
+  }
+
+  const party = Object.values(global.parties).find(
+    (p) =>
+      Array.isArray(p.members) &&
+      p.members.some((member) => member.account_id === user.accountId)
+  );
+
+  if (!party || !Array.isArray(party.members)) {
+    res.type("text/plain").send("");
+    return;
+  }
+
+  const teammate = party.members.find((member) => member.account_id !== user.accountId);
+  if (!teammate) {
+    res.type("text/plain").send("");
+    return;
+  }
+
+  let teammateName =
+    teammate?.meta?.["urn:epic:member:dn_s"] ||
+    teammate?.meta?.["Default:MemberName_s"] ||
+    "";
+
+  if (!teammateName) {
+    teammateName = await getUsernameFromAccountId(teammate.account_id);
+  }
+
+  res.type("text/plain").send(teammateName || "");
+});
 
 app.get("/fortnite/api/matchmaking/session/findPlayer/*", (req, res) => {
   res.status(200).end();
