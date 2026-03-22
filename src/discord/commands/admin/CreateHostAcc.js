@@ -11,7 +11,6 @@ const BASE_USERNAME = "hostaccount";
 const BASE_DOMAIN = "helix.dev";
 
 function generatePassword() {
-  // URL-safe random password, no whitespace and Discord-friendly to copy.
   return randomBytes(12).toString("base64url");
 }
 
@@ -41,7 +40,7 @@ async function findNextHostIdentity() {
 
 export const data = new SlashCommandBuilder()
   .setName("createhostacc")
-  .setDescription("Creates a standalone host account (not linked to Discord)")
+  .setDescription("Creates a host account")
   .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setDMPermission(false);
 
@@ -58,7 +57,6 @@ export async function execute(interaction) {
     const { username, email } = await findNextHostIdentity();
     const password = generatePassword();
 
-    // Uses a synthetic unique ID to avoid linking this account to a real Discord user.
     const syntheticDiscordId = `hostacc:${Date.now()}:${randomBytes(4).toString("hex")}`;
 
     const createResult = await Utils.CreateUser(
@@ -83,7 +81,7 @@ export async function execute(interaction) {
         { name: "Email", value: email, inline: false },
         { name: "Password", value: password, inline: false }
       )
-      .setFooter({ text: "Standalone account (not linked to a Discord account)" })
+      .setFooter({ text: "This account is for hosting purposes only." })
       .setTimestamp();
 
     await interaction.editReply({ embeds: [embed] });
